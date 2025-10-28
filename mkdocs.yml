@@ -1,0 +1,54 @@
+site_name: Accor DocOps
+site_description: ITIL-aligned documentation hub
+site_url: https://example.github.io/accor-docops
+theme:
+  name: material
+  logo: media/itil-catalog.png
+  favicon: media/itil-catalog.png
+  features:
+    - navigation.sections
+    - navigation.path
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: amber
+plugins:
+  - search
+  - glightbox
+  - section-index
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - def_list
+nav:
+  - EN:
+      - Home: en/index.md
+      - ITIL:
+          - Incident Management: en/itil/incident/index.md
+          - Problem Management: en/itil/problem/index.md
+          - Change Enablement: en/itil/change/index.md
+          - Configuration Management (CMDB): en/itil/cmdb/index.md
+          - Service Catalog Management: en/itil/service-catalog/index.md
+      - Knowledge Base (KB): en/kb/index.md
+      - Ops (Runbooks): en/ops/index.md
+      - DevOps: en/devops/index.md
+      - Governance: en/governance/index.md
+  - FR:
+      - Accueil: fr/index.md
+      - ITIL:
+          - Gestion des incidents: fr/itil/incident/index.md
+          - Gestion des problèmes: fr/itil/problem/index.md
+          - Gestion des changements: fr/itil/change/index.md
+          - Gestion des configurations (CMDB): fr/itil/cmdb/index.md
+          - Gestion du catalogue de services: fr/itil/service-catalog/index.md
+extra:
+  social:
+    - icon: material/book-open-page-variant
+      link: https://example.github.io/accor-docops
+  consent:
+    title: Cookies
+    description: Internal demo site.
+docs_dir: docs
