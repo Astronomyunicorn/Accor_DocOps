@@ -2,7 +2,13 @@
 title: "Policy: <Topic>"
 summary: "Binding rules and responsibilities."
 owner: "ITIL/Governance"
-tags: ["policy", "governance"]
+tags:
+  - audience:manager
+  - doc-type:policy
+  - owner:security
+  - topic:governance
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

@@ -59,6 +59,11 @@ Why it's convenient:
 - **CI/CD out of the box.** Markdown linter, link checker, PR preview, auto‑deploy.
 - **Ready to grow.** From RACI & policies to Jira/ServiceNow links when needed.
 
+### Faceted navigation and freshness
+- **Facets:** Browse by Audience, Type, and Owner in the EN nav.
+- **Last Updated:** Facet pages show last modified dates from Git for each document.
+- **Stats on Home:** Total docs and lifecycle coverage auto-updated during CI.
+
 ---
 
 ## 🌍 Localization (i18n)
@@ -128,6 +133,25 @@ mkdocs serve
 mkdocs build
 # Static site in the site/ folder
 ```
+
+### Content quality toolkit
+- Tags validator: `python tools/validate_tags.py docs/en/...`
+- Facet generator: `python tools/generate_facets.py`
+- Stats generator: `python tools/generate_statistics.py`
+- Health check: `python tools/docs_health_check.py`
+- Internal link check: `python tools/check_links.py`
+- Orphan media check: `python tools/check_media.py`
+
+Pre-commit setup:
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+Tagging rules (short):
+- Required namespaces per doc: `audience`, `doc-type`, `owner`, `lifecycle`, `sensitivity`; 1–3 `topic`
+- 3–10 tags total; kebab-case, english
+- Deprecated docs must include `deprecated_redirect` in front matter
 
 ---
 

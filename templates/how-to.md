@@ -2,7 +2,13 @@
 title: "How\u2011to: <Action>"
 summary: "Step-by-step instructions to complete a task."
 owner: "ITIL/Service Catalog Management"
-tags: ["kb", "how-to"]
+tags:
+  - audience:developer
+  - doc-type:howto
+  - owner:apps
+  - topic:service-name
+  - lifecycle:review
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

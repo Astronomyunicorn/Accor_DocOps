@@ -1,4 +1,35 @@
 repos:
+  - repo: local
+    hooks:
+      - id: validate-tags
+        name: Validate documentation tags
+        entry: python tools/validate_tags.py
+        language: system
+        files: '^docs/.*\.md$'
+        pass_filenames: true
+
+      - id: docs-health-check
+        name: Documentation health check
+        entry: python tools/docs_health_check.py
+        language: system
+        files: '^docs/.*\.md$'
+        pass_filenames: false
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.16
+    hooks:
+      - id: mdformat
+        additional_dependencies: [mdformat-gfm]
+        files: '^docs/.*\.md$'
+        args: [--wrap=120]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        files: '\.(ya?ml)$'
+
+repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:

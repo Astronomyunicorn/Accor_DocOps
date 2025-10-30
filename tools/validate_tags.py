@@ -124,7 +124,16 @@ def main() -> int:
                 print(f"  - {e}")
             exit_code = 1
         else:
-            print(f"[OK] {path}")
+            # Additional rule: deprecated docs must include redirect
+            fm_text = fm
+            if any(t == "lifecycle:deprecated" for t in tags):
+                if "deprecated_redirect:" not in fm_text:
+                    print(f"[FAIL] {path}: Deprecated doc must have 'deprecated_redirect' in front matter")
+                    exit_code = 1
+                else:
+                    print(f"[OK] {path} (deprecated with redirect)")
+            else:
+                print(f"[OK] {path}")
 
     return exit_code
 
