@@ -1,0 +1,35 @@
+name: Validate Tags
+
+on:
+  pull_request:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate tags
+        shell: bash
+        run: |
+          set -e
+          MD_FILES=$(git ls-files "docs/**/*.md")
+          if [ -z "$MD_FILES" ]; then
+            echo "No markdown files found"
+            exit 0
+          fi
+          python tools/validate_tags.py $MD_FILES
+

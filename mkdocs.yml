@@ -9,6 +9,8 @@ theme:
     - navigation.sections
     - navigation.path
     - content.code.copy
+    - content.action.edit
+  language: en
   palette:
     - scheme: slate
       primary: indigo
@@ -17,6 +19,28 @@ plugins:
   - search
   - glightbox
   - section-index
+  - i18n:
+      default_language: en
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+        - locale: de
+          name: Deutsch
+          build: false
+        - locale: es
+          name: Español
+          build: false
+        - locale: ru
+          name: Русский
+          build: false
+      docs_structure: folder
+  - tags:
+      tags_file: tags.md
 markdown_extensions:
   - admonition
   - toc:
@@ -26,6 +50,10 @@ markdown_extensions:
 nav:
   - EN:
       - Home: en/index.md
+      - Tags: en/tags.md
+      - Browse by Audience: en/by-audience/index.md
+      - Browse by Type: en/by-type/index.md
+      - Browse by Owner: en/by-owner/index.md
       - ITIL:
           - Incident Management: en/itil/incident/index.md
           - Problem Management: en/itil/problem/index.md
@@ -51,4 +79,20 @@ extra:
   consent:
     title: Cookies
     description: Internal demo site.
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Français
+      link: /fr/
+      lang: fr
+    - name: Deutsch
+      link: /de/
+      lang: de
+    - name: Español
+      link: /es/
+      lang: es
+    - name: Русский
+      link: /ru/
+      lang: ru
 docs_dir: docs

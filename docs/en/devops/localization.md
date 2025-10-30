@@ -1,0 +1,79 @@
+---
+title: "Localization (i18n)"
+summary: "How to add and manage new locales in the docs."
+owner: "DocOps/Docs Platform"
+tags: ["i18n", "localization"]
+last_review: "2025-10-30"
+locale: "en"
+service: "docops"
+version: "v1.0"
+outdated: false
+---
+
+## Goal
+Enable additional locales (e.g., `de`, `es`, `ru`) and provide clear steps for external translation agencies.
+
+## Structure
+- Root docs directory: `docs/`
+- Per-locale folders: `docs/en/`, `docs/fr/`, `docs/<new-locale>/`
+- Shared media: `docs/media/`
+
+Images are shared across locales. Use relative paths from content files, e.g. from `docs/en/itil/...` use `../../../media/<image>.png`.
+
+## How it works
+The site uses the `mkdocs-static-i18n` plugin:
+- Default language: `en`
+- Existing locales: `en`, `fr`
+- Placeholder entries prepared for `de`, `es`, `ru`
+
+The language switcher is shown via the `alternate` config in `mkdocs.yml`.
+
+## Adding a new locale (maintainers)
+1) Create the folder:
+   - `docs/<locale>/` (e.g., `docs/de/`)
+2) Seed initial content:
+   - Copy `docs/en/index.md` to `docs/<locale>/index.md`
+   - Copy only the pages you plan to translate; you can add more over time
+3) Front matter rules for each page:
+   - `locale: "<locale>"`
+   - `outdated: true` if the translation lags behind English
+   - Keep other metadata (title/summary/owner/tags) localized as needed
+4) Link paths:
+   - Keep relative media paths pointing to `../../../media/...`
+5) Navigation:
+   - Add the new locale section under `nav:` in `mkdocs.yml` or use `nav_translations` (advanced). For now, mirror the EN nav for essential pages.
+6) Build locally:
+   - `mkdocs serve` or `mkdocs build --clean`
+
+## Handing off to translation agencies
+Provide the agency with:
+- The `docs/en/` subtree as source of truth
+- The target folder to translate, e.g., `docs/de/`
+- The style guides: `DOCUMENTATION_STYLE.md`, `STYLEGUIDE.md`
+- File-level rules:
+  - Preserve YAML front matter keys; set `locale` and optionally `outdated`
+  - Translate headings, body, tables, callouts
+  - Do NOT change image paths unless images differ by locale
+- Scope and checklist:
+  - Pages in scope (list the exact files)
+  - Glossary/terminology constraints if any
+
+## Reviewing translations
+1) Lint: run Vale/markdownlint if applicable
+2) Open the local preview and check layout, links, and images
+3) When EN changes, set translated pages to `outdated: true` until re-aligned
+
+## Updating language switcher
+If you add a new locale, also update `extra.alternate` in `mkdocs.yml` to include it:
+
+```yaml
+extra:
+  alternate:
+    - name: Deutsch
+      link: /de/
+      lang: de
+```
+
+Then rebuild the site.
+
+

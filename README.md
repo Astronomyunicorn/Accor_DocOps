@@ -61,6 +61,30 @@ Why it's convenient:
 
 ---
 
+## 🌍 Localization (i18n)
+
+The project supports multiple languages via the `mkdocs-static-i18n` plugin.
+
+- **Default language:** `en`
+- **Already available:** `en`, `fr`
+- **Ready to add:** new locales can be plugged in (e.g., `de`, `es`, `ru`)
+
+Detailed how-to for vendors and translators: `docs/en/devops/localization.md` (site path: `/en/devops/localization/`).
+
+How to add a new locale (short version):
+1. Create `docs/<locale>/` (e.g., `docs/ru/`).
+2. Copy the needed pages from `docs/en/` and translate them.
+3. In each page’s front matter set: `locale: "<locale>"`; if not aligned with EN yet, set `outdated: true`.
+4. Images are shared across languages: keep them in `docs/media/` and use relative links like `../../../media/<image>.png` from nested sections.
+5. Update `mkdocs.yml`: add the new locale under `nav:` and include it in the language switcher `extra.alternate`.
+6. Build the site: `mkdocs build --clean` or preview locally with `mkdocs serve`.
+
+Technical notes:
+- `mkdocs-static-i18n` is added in `requirements.txt`.
+- `i18n` plugin is enabled in `mkdocs.yml` (folder-based structure) and the language switcher is configured.
+
+When a translation lags behind EN, mark the page `outdated: true` so readers see the status until it’s updated.
+
 ## 🚀 Quick start
 
 **Requirements:** Python 3.8+, Git
