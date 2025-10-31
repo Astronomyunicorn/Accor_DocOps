@@ -219,7 +219,7 @@ Potential enhancements:
 
 - [ADR-005: Pre-commit Hooks](../decisions/0005-pre-commit-hooks.md)
 - [ADR-006: Documentation Standards](../decisions/0006-documentation-standards.md)
-- [Tools README](../../../../TOOLS_README.md)
+- [Tools README](../../../devops/TOOLS_README.md)
 
 ---
 

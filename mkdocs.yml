@@ -53,6 +53,7 @@ nav:
       - Browse by Type: en/by-type/index.md
       - Browse by Owner: en/by-owner/index.md
       - ITIL:
+          - Overview: en/itil/README.md
           - Incident Management: en/itil/incident/index.md
           - Problem Management: en/itil/problem/index.md
           - Change Enablement: en/itil/change/index.md
@@ -60,12 +61,29 @@ nav:
           - Service Catalog Management: en/itil/service-catalog/index.md
       - Knowledge Base (KB): en/kb/index.md
       - Ops (Runbooks): en/ops/index.md
-      - DevOps: en/devops/index.md
+      - DevOps:
+          - Overview: en/devops/index.md
+          - Localization: en/devops/localization.md
+          - Vale Setup: en/devops/vale-setup.md
       - Governance:
           - Overview: en/governance/index.md
           - Taxonomy: en/governance/taxonomy.md
-          - Architecture: en/governance/architecture/README.md
-      - Onboarding: en/onboarding/index.md
+          - Architecture:
+              - Overview: en/governance/architecture/README.md
+              - Decisions: en/governance/architecture/decisions/README.md
+              - C4 Diagrams:
+                  - Context: en/governance/architecture/c4-diagrams/context.md
+                  - Containers: en/governance/architecture/c4-diagrams/containers.md
+              - Platform Features:
+                  - Tagging System: en/governance/architecture/platform-features/tagging-system.md
+                  - Search & Facets: en/governance/architecture/platform-features/search-facets.md
+                  - CI/CD Workflow: en/governance/architecture/platform-features/ci-cd-workflow.md
+                  - Quality Checks: en/governance/architecture/platform-features/quality-checks.md
+      - Onboarding:
+          - Getting Started: en/onboarding/index.md
+          - Contributing: en/onboarding/contributing.md
+          - FAQ: en/onboarding/faq.md
+          - Architecture Structure: en/onboarding/architecture-structure.md
 extra:
   social:
     - icon: material/book-open-page-variant

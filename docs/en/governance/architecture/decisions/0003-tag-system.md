@@ -148,7 +148,7 @@ tags:
 
 ## References
 
-- [Taxonomy Documentation](../taxonomy.md)
+- [Taxonomy Documentation](../../taxonomy.md)
 - [MkDocs Tags Plugin](https://github.com/jldiaz/mkdocs-plugin-tags)
 
 ---

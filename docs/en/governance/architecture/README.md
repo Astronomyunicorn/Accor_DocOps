@@ -23,8 +23,8 @@ outdated: false
 Architecture of Accor DocOps platform and design principles.
 
 > 📋 **New here?** Start with [System Overview](#overview)  
-> 🎯 **Looking for a decision?** See [Architecture Decisions](./decisions/)  
-> 📊 **Need diagrams?** Open [C4 Diagrams](./c4-diagrams/)
+> 🎯 **Looking for a decision?** See [Architecture Decisions](decisions/README.md)  
+> 📊 **Need diagrams?** Open [C4 Context Diagram](c4-diagrams/context.md)
 
 ## Overview
 
@@ -49,7 +49,7 @@ All important decisions are documented as ADRs:
 | [0005](./decisions/0005-pre-commit-hooks.md) | Local validation hooks | ✅ Accepted |
 | [0006](./decisions/0006-documentation-standards.md) | Documentation standards | ✅ Accepted |
 
-[All ADRs →](./decisions/)
+[All ADRs →](decisions/README.md)
 
 ## System Architecture
 
@@ -95,7 +95,7 @@ All important decisions are documented as ADRs:
 └──────────────────────────────────┘
 ```
 
-For detailed diagrams, see [C4 Diagrams](./c4-diagrams/).
+For detailed diagrams, see [C4 Context Diagram](c4-diagrams/context.md) and [C4 Containers Diagram](c4-diagrams/containers.md).
 
 ## Platform Features
 

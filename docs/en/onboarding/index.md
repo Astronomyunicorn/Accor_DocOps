@@ -41,7 +41,7 @@ Accor DocOps is a **documentation-as-code platform** that centralizes all IT doc
 **New here?** Start with:
 1. [Local Setup](#local-setup) — Get the site running on your machine
 2. [Creating Your First Document](#creating-your-first-document) — Write your first page
-3. [Contribution Workflow](../contributing.md) — How to submit changes
+3. [Contribution Workflow](./contributing.md) — How to submit changes
 
 **Looking for specific information?**
 - [FAQ](./faq.md) — Common questions
@@ -237,7 +237,7 @@ See [Taxonomy](../governance/taxonomy.md) for complete list.
 8. **Review:** Get approval from reviewer
 9. **Merge:** Changes go live automatically
 
-See [Contributing Guide](./contributing.md) for details.
+See [Contributing Guide](../onboarding/contributing.md) for details.
 
 ## Common Tasks
 

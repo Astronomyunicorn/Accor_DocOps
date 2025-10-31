@@ -147,9 +147,9 @@ outdated: false
 - Missing fields cause build warnings
 
 **Documentation:**
-- [DOCUMENTATION_STYLE.md](../../../../DOCUMENTATION_STYLE.md) — Style guide
-- [STYLEGUIDE.md](../../../../STYLEGUIDE.md) — Writing guidelines
-- [Taxonomy](../taxonomy.md) — Tag definitions
+- [DOCUMENTATION_STYLE.md](../../DOCUMENTATION_STYLE.md) — Style guide
+- [STYLEGUIDE.md](../../STYLEGUIDE.md) — Writing guidelines
+- [Taxonomy](../../taxonomy.md) — Tag definitions
 
 ## Related Decisions
 
@@ -158,8 +158,8 @@ outdated: false
 
 ## References
 
-- [Templates Directory](../../../../templates/)
-- [Documentation Style Guide](../../../../DOCUMENTATION_STYLE.md)
+- [Templates Directory](../../../templates/) (see repository root)
+- [Documentation Style Guide](../../DOCUMENTATION_STYLE.md)
 
 ---
 
