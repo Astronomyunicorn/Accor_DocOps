@@ -2,7 +2,13 @@
 title: Documentation by Audience
 description: Browse all documentation grouped by intended audience
 owner: DocOps/Governance
-tags: ["governance", "taxonomy"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:platform
+  - topic:taxonomy
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-30"
 locale: "en"
 service: "docops"
@@ -16,10 +22,9 @@ Choose your role to find relevant documentation:
 
 - [L1 Support](l1-support.md) — First-line support, NOC operators
 - [L2 Support](l2-support.md) — Second-line support
-- [SRE](sre.md) — Site reliability engineers, DevOps
+- [L1 Support](l1-support.md) — First-line support, NOC operators
+- [L2 Support](l2-support.md) — Second-line support
 - [Developer](developer.md) — Software developers, architects
-- [DBA](dba.md) — Database administrators
-- [SecOps](secops.md) — Security engineers
 - [Manager](manager.md) — Team leads, engineering managers
 
 

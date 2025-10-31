@@ -3,6 +3,13 @@ title: "Incident Management"
 summary: "Overview and key practices for Incident Management."
 owner: "ITIL/Incident Management"
 tags: ["itil", "incident"]
+tags:
+  - audience:l1-support
+  - doc-type:reference
+  - owner:service-desk
+  - topic:itil-incident
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

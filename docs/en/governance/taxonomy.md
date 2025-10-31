@@ -2,7 +2,13 @@
 title: "Content Tagging Taxonomy"
 summary: "Optimized tag namespaces and rules for consistent classification."
 owner: "DocOps/Governance"
-tags: ["governance", "taxonomy"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:platform
+  - topic:taxonomy
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-30"
 locale: "en"
 service: "docops"

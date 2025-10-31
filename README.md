@@ -90,6 +90,8 @@ Technical notes:
 
 When a translation lags behind EN, mark the page `outdated: true` so readers see the status until it’s updated.
 
+> 📘 **All documentation and instructions are consolidated in [FAQ.md](FAQ.md)** — complete reference guide with setup, troubleshooting, and best practices.
+
 ## 🚀 Quick start
 
 **Requirements:** Python 3.8+, Git
@@ -206,4 +208,10 @@ Each template includes author, owner, review dates, tags, and version fields.
 ## ✅ Bottom line
 
 This repo has a **solid, grown‑up structure** that saves time, tames search, and makes updates a natural part of team work. You can feel the thinking behind **roles, review cycles, and bilingual content**, while automation kills the busywork.
+
+---
+
+## 📘 Documentation
+
+**For complete documentation, setup instructions, troubleshooting, and FAQs, see [FAQ.md](FAQ.md)** — all project documentation is consolidated in one place for easy reference.
 

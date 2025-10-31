@@ -1,0 +1,159 @@
+---
+title: "ADR-003: Namespace-based Tagging System"
+summary: "Decision to use namespace-based tags for document classification"
+owner: "DocOps/Platform"
+tags:
+  - audience:developer
+  - doc-type:reference
+  - owner:platform
+  - topic:architecture
+  - topic:taxonomy
+  - lifecycle:approved
+  - sensitivity:internal
+last_review: "2025-01-15"
+locale: "en"
+service: "docops"
+version: "v1.0"
+outdated: false
+---
+
+# ADR-003: Namespace-based Tagging System
+
+## Status
+
+✅ **Accepted** (Date: 2025-01-15)
+
+## Context
+
+**Problem:**
+- Documentation needs to be findable by multiple dimensions:
+  - Who is it for? (audience)
+  - What type is it? (document type)
+  - Who owns it? (owner)
+  - What topic? (subject matter)
+  - What status? (lifecycle)
+  - What sensitivity? (access level)
+- Simple flat tags don't scale well
+- Need validation to prevent tag chaos
+- Multiple teams will add tags, need consistency
+
+**Why this matters:**
+- Team members need to find relevant docs quickly
+- Navigation by facets (audience, type, owner) improves UX
+- Tag validation prevents "tag spam" and inconsistencies
+- Clear taxonomy helps onboarding
+
+## Decision
+
+**Implement namespace-based tagging system with required and optional namespaces.**
+
+Each document must have tags in these namespaces:
+- `audience:` — Who reads this? (l1-support, developer, manager, etc.)
+- `doc-type:` — What format? (runbook, howto, reference, policy, etc.)
+- `owner:` — Who owns this? (platform, security, network, etc.)
+- `topic:` — What is it about? (1-3 topics like kubernetes, api-gateway, etc.)
+- `lifecycle:` — Document status (draft, review, approved, deprecated)
+- `sensitivity:` — Access level (public, internal, confidential, restricted)
+
+Optional namespaces:
+- `region:` — Geography (if relevant)
+- `incident-priority:` — For runbooks (p0, p1, p2)
+
+## Alternatives Considered
+
+### Alternative A: Flat Tags (No Namespaces)
+- **Pros:** Simple, flexible
+- **Cons:** Tag conflicts (e.g., "kubernetes" vs "kubernetes-cluster"), no validation, hard to query by dimension
+- **Why not chosen:** Doesn't scale, leads to tag chaos
+
+### Alternative B: Hierarchical Categories (Folders Only)
+- **Pros:** Simple organization
+- **Cons:** Documents can only be in one category, no multi-dimensional search
+- **Why not chosen:** Too limiting, can't tag by multiple dimensions
+
+### Alternative C: Metadata Fields (YAML Front Matter Only)
+- **Pros:** Structured, validated
+- **Cons:** Can't be used by MkDocs plugins for faceted search, less flexible
+- **Why not chosen:** Need tags for search/filter functionality
+
+### Alternative D: RDF/OWL Ontology
+- **Pros:** Very powerful, semantic
+- **Cons:** Overkill, complex, steep learning curve
+- **Why not chosen:** Too complex for documentation tagging
+
+### Our Choice: Namespace-based Tags
+**Why we chose this:**
+- ✅ **Multi-dimensional** — Documents can be tagged by multiple facets
+- ✅ **Validatable** — Namespaces prevent conflicts (e.g., `audience:developer` vs `topic:developer`)
+- ✅ **Plugin-friendly** — Works with `mkdocs-tags` plugin for faceted navigation
+- ✅ **Scalable** — Easy to add new values in namespaces without breaking existing tags
+- ✅ **Human-readable** — Clear semantics (`audience:developer` is self-explanatory)
+- ✅ **Searchable** — Can filter/search by namespace
+
+## Consequences
+
+### Positive ✅
+
+1. **Consistent Classification** — Namespaces prevent tag conflicts
+2. **Multi-faceted Navigation** — Users can filter by audience, type, owner, topic
+3. **Validation** — Tools can check tag format and allowed values
+4. **Discoverability** — Better search and filtering
+5. **Onboarding** — Clear taxonomy helps new team members
+
+### Negative ❌
+
+1. **Learning Curve** — Team needs to learn namespace syntax
+   - **Mitigation:** Clear documentation, templates, validation tools
+2. **Verbose** — Tags are longer (`audience:developer` vs `developer`)
+   - **Mitigation:** Acceptable trade-off for clarity and validation
+3. **Validation Required** — Need tools to check tags
+   - **Mitigation:** Pre-commit hooks and CI checks
+
+## Implementation Details
+
+**Tag Format:**
+```yaml
+tags:
+  - audience:developer
+  - doc-type:reference
+  - owner:platform
+  - topic:kubernetes
+  - topic:docker
+  - lifecycle:approved
+  - sensitivity:internal
+```
+
+**Validation Rules:**
+- Required: `audience`, `doc-type`, `owner`, `topic` (1-3), `lifecycle`, `sensitivity`
+- Optional: `region`, `incident-priority`
+- Total: 3-10 tags per document
+- Format: `namespace:value` (kebab-case)
+- Allowlist: Valid values stored in `tools/tags-allowlist.json`
+
+**Tools:**
+- `tools/validate_tags.py` — Validates tags against allowlist
+- Pre-commit hooks — Run validation before commit
+- CI/CD — Validate all tags in PRs
+
+**Navigation:**
+- `mkdocs-tags` plugin creates facet pages:
+  - `/by-audience/` — Filter by audience
+  - `/by-type/` — Filter by document type
+  - `/by-owner/` — Filter by owner
+
+## Related Decisions
+
+- [ADR-005: Pre-commit Hooks](./0005-pre-commit-hooks.md)
+- [ADR-006: Documentation Standards](./0006-documentation-standards.md)
+
+## References
+
+- [Taxonomy Documentation](../taxonomy.md)
+- [MkDocs Tags Plugin](https://github.com/jldiaz/mkdocs-plugin-tags)
+
+---
+
+**Date:** 2025-01-15  
+**Author:** DocOps Team  
+**Approved By:** Platform Lead
+

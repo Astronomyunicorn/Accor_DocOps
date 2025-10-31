@@ -2,7 +2,13 @@
 title: "Localization (i18n)"
 summary: "How to add and manage new locales in the docs."
 owner: "DocOps/Docs Platform"
-tags: ["i18n", "localization"]
+tags:
+  - audience:developer
+  - doc-type:tutorial
+  - owner:platform
+  - topic:i18n
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-30"
 locale: "en"
 service: "docops"

@@ -50,11 +50,11 @@ def render_stats_md(total: int, by_lifecycle: dict) -> str:
     pct = lambda n: f"{round((n/total)*100):d}%" if total else "0%"
 
     lines = [
-        "**\ud83d\udcda Total Documents:** " + str(total) + "  ",
-        f"**\u2705 Approved:** {approved} ({pct(approved)})  ",
-        f"**\ud83d\udd04 In Review:** {review} ({pct(review)})  ",
-        f"**\ud83d\udccb Draft:** {draft} ({pct(draft)})  ",
-        f"**\u26a0\ufe0f Deprecated:** {deprecated}",
+        f"**Total Documents:** {total}  ",
+        f"**Approved:** {approved} ({pct(approved)})  ",
+        f"**In Review:** {review} ({pct(review)})  ",
+        f"**Draft:** {draft} ({pct(draft)})  ",
+        f"**Deprecated:** {deprecated}",
         "",
         "---",
         "",

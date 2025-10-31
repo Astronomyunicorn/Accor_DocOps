@@ -2,7 +2,13 @@
 title: "[How\u2011to] Reset VPN on macOS"
 summary: "Troubleshooting steps to restore VPN connectivity."
 owner: "ITIL/Service Desk"
-tags: ["kb", "vpn", "macos"]
+tags:
+  - audience:l1-support
+  - doc-type:howto
+  - owner:service-desk
+  - topic:vpn
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

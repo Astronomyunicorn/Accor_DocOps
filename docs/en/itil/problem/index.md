@@ -3,6 +3,13 @@ title: "Problem Management"
 summary: "Overview and key practices for Problem Management."
 owner: "ITIL/Problem Management"
 tags: ["itil", "problem"]
+tags:
+  - audience:l2-support
+  - doc-type:reference
+  - owner:service-desk
+  - topic:itil-problem
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

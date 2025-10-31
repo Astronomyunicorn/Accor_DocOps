@@ -1,0 +1,240 @@
+---
+title: "Vale Setup Guide"
+summary: "How to install and configure Vale for documentation style checking"
+owner: "DocOps/Platform"
+tags:
+  - audience:developer
+  - doc-type:howto
+  - owner:platform
+  - topic:quality
+  - topic:devops
+  - lifecycle:approved
+  - sensitivity:internal
+last_review: "2025-01-15"
+locale: "en"
+service: "docops"
+version: "v1.0"
+outdated: false
+---
+
+# Vale Setup Guide
+
+How to install and configure Vale for documentation style checking.
+
+## What is Vale?
+
+**Vale** is a syntax-aware linter for prose that helps maintain consistency and quality in documentation. It checks for:
+- Writing style issues
+- Grammar problems
+- Word usage
+- Repetition
+- Spelling
+
+## Installation
+
+### Windows
+
+**Option 1: Download Binary**
+1. Go to [Vale Releases](https://github.com/errata-ai/vale/releases)
+2. Download `vale_X.X.X_Windows_x64.zip`
+3. Extract to a folder (e.g., `C:\Program Files\Vale\`)
+4. Add to PATH:
+   - Right-click "This PC" → Properties → Advanced system settings
+   - Environment Variables → Edit PATH
+   - Add Vale folder path
+
+**Option 2: Chocolatey (if installed)**
+```cmd
+choco install vale
+```
+
+**Option 3: Scoop (if installed)**
+```cmd
+scoop install vale
+```
+
+### macOS/Linux
+
+```bash
+# macOS (Homebrew)
+brew install vale
+
+# Linux - download from releases
+# https://github.com/errata-ai/vale/releases
+```
+
+### Verify Installation
+
+```bash
+vale --version
+# Should output: vale v3.0.11 (or similar)
+```
+
+## Configuration
+
+### Current Setup
+
+Your `.vale.ini` is configured to use styles from `.vale/styles`:
+
+```ini
+StylesPath = .vale/styles
+MinAlertLevel = suggestion
+
+[*.md]
+BasedOnStyles = Vale, Microsoft, write-good
+```
+
+### Setup Styles
+
+**Option 1: Use Vale Sync (Recommended)**
+
+Vale can automatically download supported styles:
+
+```bash
+# Create styles directory
+mkdir .vale\styles
+
+# Download styles (Vale will fetch Microsoft and write-good styles)
+vale sync
+```
+
+**Option 2: Manual Style Installation**
+
+If `vale sync` doesn't work, install styles manually:
+
+1. Create `.vale/styles` directory
+2. Clone style repositories:
+   ```bash
+   cd .vale\styles
+   
+   # Microsoft style
+   git clone https://github.com/errata-ai/Microsoft.git
+   
+   # write-good style
+   git clone https://github.com/errata-ai/write-good.git
+   ```
+
+**Option 3: Minimal Setup (Vale Core Only)**
+
+If you don't need Microsoft/write-good styles, update `.vale.ini`:
+
+```ini
+StylesPath = .vale/styles
+MinAlertLevel = suggestion
+
+[*.md]
+BasedOnStyles = Vale
+
+# Core Vale rules
+Vale.Spelling = YES
+Vale.Repetition = YES
+```
+
+Then create minimal structure:
+```bash
+mkdir .vale\styles
+# Vale core styles are built-in, no download needed
+```
+
+## Testing
+
+After setup, test Vale:
+
+```bash
+# Test on a single file
+vale docs/en/index.md
+
+# Test on entire docs directory
+vale docs/
+
+# Test with pre-commit
+pre-commit run vale --all-files
+```
+
+## Troubleshooting
+
+### Error: "StylesPath not found"
+
+**Solution:** Create the directory:
+```bash
+mkdir .vale\styles
+```
+
+### Error: "Style 'Microsoft' not found"
+
+**Solution:** Install the style:
+```bash
+vale sync
+# Or manually: git clone https://github.com/errata-ai/Microsoft.git .vale/styles/Microsoft
+```
+
+### Vale not found in PATH
+
+**Solution:** 
+1. Verify installation: `vale --version`
+2. If not found, add Vale to PATH or use full path:
+   ```bash
+   "C:\Program Files\Vale\vale.exe" docs/
+   ```
+
+## Integration with Pre-commit
+
+Vale is already configured in `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/errata-ai/vale
+  rev: v3.0.11
+  hooks:
+    - id: vale
+      files: '^docs/.*\.md$'
+```
+
+It will run automatically on commit (if pre-commit is installed).
+
+## Skip Vale (Optional)
+
+If you don't want to use Vale, you can:
+
+1. **Remove from pre-commit:**
+   - Edit `.pre-commit-config.yaml`
+   - Comment out or remove Vale section
+
+2. **Update documentation:**
+   - Remove Vale references from `TOOLS_README.md`
+   - Remove from `dev.bat` if present
+
+3. **Keep config for future:**
+   - Leave `.vale.ini` (doesn't hurt if Vale isn't installed)
+
+## Recommended: Minimal Setup
+
+For a quick start, use Vale core only (no external styles):
+
+1. **Update `.vale.ini`:**
+   ```ini
+   StylesPath = .vale/styles
+   MinAlertLevel = suggestion
+
+   [*.md]
+   BasedOnStyles = Vale
+
+   Vale.Spelling = YES
+   Vale.Repetition = YES
+   ```
+
+2. **Create directory:**
+   ```bash
+   mkdir .vale\styles
+   ```
+
+3. **Test:**
+   ```bash
+   vale docs/en/index.md
+   ```
+
+This gives you basic spelling and repetition checking without external style dependencies.
+
+---
+
+**Last Updated:** 2025-01-15
+

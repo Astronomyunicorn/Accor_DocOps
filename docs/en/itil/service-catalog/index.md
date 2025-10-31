@@ -3,6 +3,13 @@ title: "Service Catalog Management"
 summary: "Overview and key practices for Service Catalog Management."
 owner: "ITIL/Service Catalog Management"
 tags: ["itil", "service-catalog"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:apps
+  - topic:service-catalog
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

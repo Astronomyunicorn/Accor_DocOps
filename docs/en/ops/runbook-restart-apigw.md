@@ -2,7 +2,14 @@
 title: "[Runbook] Restart API Gateway"
 summary: "Safe restart procedure with health checks and rollback."
 owner: "ITIL/Operations"
-tags: ["ops", "apigw"]
+tags:
+  - audience:l1-support
+  - doc-type:runbook
+  - owner:platform
+  - topic:api-gateway
+  - lifecycle:approved
+  - sensitivity:internal
+  - incident-priority:p1
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

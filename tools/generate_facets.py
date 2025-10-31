@@ -71,7 +71,7 @@ def slug_to_title(slug: str) -> str:
     return re.sub(r"\s+", " ", slug.replace("-", " ")).title()
 
 
-def generate_page(namespace: str, value: str, docs: list[Path], base_dir: Path, doc_to_tags: dict[Path, list[str]]) -> str:
+def generate_page(namespace: str, value: str, docs: list[Path], base_dir: Path, page_dir: Path, doc_to_tags: dict[Path, list[str]]) -> str:
     title = f"Documentation for {slug_to_title(value)}"
     lines = [
         "---",
@@ -88,7 +88,7 @@ def generate_page(namespace: str, value: str, docs: list[Path], base_dir: Path, 
         "",
     ]
     for doc in sorted(docs):
-        rel = os.path.relpath(doc, base_dir)
+        rel = os.path.relpath(doc, page_dir).replace("\\", "/")
         name = slug_to_title(doc.stem)
         last = get_last_modified(doc)
         # Show key tags for context
@@ -122,8 +122,9 @@ def main() -> int:
             if tag.startswith(f"{ns}:"):
                 values[tag.split(":", 1)[1]].extend(files)
         for value, files in values.items():
-            content = generate_page(ns, value, files, base_dir, doc_to_tags)
-            (out_dir / f"{value}.md").write_text(content, encoding="utf-8")
+            page_path = out_dir / f"{value}.md"
+            content = generate_page(ns, value, files, base_dir, page_path.parent, doc_to_tags)
+            page_path.write_text(content, encoding="utf-8")
             generated += 1
 
     print(f"Generated {generated} facet pages.")

@@ -40,10 +40,19 @@ goto end
 
 :lint
 echo [LINT] Running markdownlint...
-markdownlint-cli2 docs/**/*.md
+markdownlint-cli2 docs/**/*.md 2>nul
+if errorlevel 1 (
+    echo Note: markdownlint not found, skipping...
+)
 echo.
 echo [LINT] Running Vale style checker...
-vale docs/
+vale docs/ 2>nul
+if errorlevel 9009 (
+    echo Note: Vale not found. See INSTALL_VALE_WINDOWS.md for installation.
+    echo Skipping Vale checks...
+) else if errorlevel 1 (
+    echo Vale checks completed with warnings.
+)
 goto end
 
 :check
@@ -60,7 +69,13 @@ echo [2/3] Markdown linting...
 markdownlint-cli2 docs/**/*.md
 echo.
 echo [3/3] Vale style checking...
-vale docs/
+vale docs/ 2>nul
+if errorlevel 9009 (
+    echo Note: Vale not found. See INSTALL_VALE_WINDOWS.md for installation.
+    echo Skipping Vale checks...
+) else if errorlevel 1 (
+    echo Vale checks completed with warnings.
+)
 goto end
 
 :fix

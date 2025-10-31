@@ -1,4 +1,5 @@
 repos:
+  # Local hooks (custom validation scripts)
   - repo: local
     hooks:
       - id: validate-tags
@@ -15,21 +16,7 @@ repos:
         files: '^docs/.*\.md$'
         pass_filenames: false
 
-  - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.16
-    hooks:
-      - id: mdformat
-        additional_dependencies: [mdformat-gfm]
-        files: '^docs/.*\.md$'
-        args: [--wrap=120]
-
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
-    hooks:
-      - id: yamllint
-        files: '\.(ya?ml)$'
-
-repos:
+  # Standard pre-commit hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
@@ -40,19 +27,33 @@ repos:
         args: ['--maxkb=1000']
       - id: check-merge-conflict
 
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.37.0
-    hooks:
-      - id: markdownlint
-        args: [--fix]
-
+  # Markdown formatting
   - repo: https://github.com/executablebooks/mdformat
     rev: 1.0.0
     hooks:
       - id: mdformat
         additional_dependencies: [mdformat-gfm]
+        files: '^docs/.*\.md$'
+        args: [--wrap=120]
 
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.37.0
+    hooks:
+      - id: markdownlint
+        args: [--fix]
+        files: '^docs/.*\.md$'
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        files: '\.(ya?ml)$'
+
+  # Vale style checking
   - repo: https://github.com/errata-ai/vale
     rev: v3.0.11
     hooks:
       - id: vale
+        files: '^docs/.*\.md$'

@@ -3,6 +3,13 @@ title: "Change Enablement"
 summary: "Overview and key practices for Change Enablement."
 owner: "ITIL/Change Enablement"
 tags: ["itil", "change"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:platform
+  - topic:itil-change
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

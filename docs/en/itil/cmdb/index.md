@@ -3,6 +3,13 @@ title: "Configuration Management (CMDB)"
 summary: "Overview and key practices for Configuration Management (CMDB)."
 owner: "ITIL/Configuration Management (CMDB)"
 tags: ["itil", "cmdb"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:infra
+  - topic:cmdb
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"

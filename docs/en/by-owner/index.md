@@ -2,7 +2,13 @@
 title: Documentation by Owner
 description: Browse documentation by owning team
 owner: DocOps/Governance
-tags: ["governance", "taxonomy"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:platform
+  - topic:taxonomy
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-30"
 locale: "en"
 service: "docops"
@@ -14,7 +20,6 @@ outdated: false
 
 Select a team:
 
-- [Network](network.md)
 - [Platform](platform.md)
 - [Security](security.md)
 - [Infra](infra.md)

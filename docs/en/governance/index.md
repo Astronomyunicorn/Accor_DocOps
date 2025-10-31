@@ -2,7 +2,13 @@
 title: "Governance"
 summary: "Policies, RACI and documentation ownership."
 owner: "ITIL/Governance"
-tags: ["governance"]
+tags:
+  - audience:manager
+  - doc-type:policy
+  - owner:security
+  - topic:governance
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-28"
 locale: "en"
 service: "docops"
@@ -21,3 +27,9 @@ Every page must list an **owner** and a **last_review** date.
 | Activity | R | A | C | I |
 |---------|---|---|---|---|
 | Incident postmortem | Service Owner | Head of Operations | Security | Stakeholders |
+
+## Related Documentation
+
+- [Taxonomy](taxonomy.md) — Content tagging rules
+- [Architecture Documentation](architecture/README.md) — Platform architecture and decisions
+- [Onboarding](../onboarding/index.md) — Getting started guide

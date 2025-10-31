@@ -20,7 +20,6 @@ plugins:
   - glightbox
   - section-index
   - i18n:
-      default_language: en
       languages:
         - locale: en
           name: English
@@ -39,8 +38,7 @@ plugins:
           name: Русский
           build: false
       docs_structure: folder
-  - tags:
-      tags_file: tags.md
+  - tags
 markdown_extensions:
   - admonition
   - toc:
@@ -63,15 +61,11 @@ nav:
       - Knowledge Base (KB): en/kb/index.md
       - Ops (Runbooks): en/ops/index.md
       - DevOps: en/devops/index.md
-      - Governance: en/governance/index.md
-  - FR:
-      - Accueil: fr/index.md
-      - ITIL:
-          - Gestion des incidents: fr/itil/incident/index.md
-          - Gestion des problèmes: fr/itil/problem/index.md
-          - Gestion des changements: fr/itil/change/index.md
-          - Gestion des configurations (CMDB): fr/itil/cmdb/index.md
-          - Gestion du catalogue de services: fr/itil/service-catalog/index.md
+      - Governance:
+          - Overview: en/governance/index.md
+          - Taxonomy: en/governance/taxonomy.md
+          - Architecture: en/governance/architecture/README.md
+      - Onboarding: en/onboarding/index.md
 extra:
   social:
     - icon: material/book-open-page-variant

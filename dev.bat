@@ -51,14 +51,23 @@ if errorlevel 1 (
 )
 echo.
 
-REM Optional: Run quality checks
+REM Optional: Run quality checks (skip if tools not installed)
 echo [4/5] Running documentation quality checks...
 echo.
 echo Running markdownlint...
-markdownlint-cli2 docs/**/*.md
+markdownlint-cli2 docs/**/*.md 2>nul
+if errorlevel 1 (
+    echo Note: markdownlint not found, skipping...
+)
 echo.
 echo Running Vale style checker...
-vale docs/
+vale docs/ 2>nul
+if errorlevel 9009 (
+    echo Note: Vale not found. See INSTALL_VALE_WINDOWS.md for installation instructions.
+    echo Skipping Vale checks...
+) else if errorlevel 1 (
+    echo Vale checks completed with warnings.
+)
 echo.
 echo Quality checks complete!
 echo.

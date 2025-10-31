@@ -2,7 +2,13 @@
 title: "All Tags"
 summary: "Browse content by tags."
 owner: "DocOps/Governance"
-tags: ["governance", "taxonomy"]
+tags:
+  - audience:manager
+  - doc-type:reference
+  - owner:platform
+  - topic:taxonomy
+  - lifecycle:approved
+  - sensitivity:internal
 last_review: "2025-10-30"
 locale: "en"
 service: "docops"
