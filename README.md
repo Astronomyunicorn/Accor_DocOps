@@ -1,217 +1,184 @@
 
-# 📚 Accor DocOps — One Home for Documentation
+# 📚 Accor DocOps — Your Centralized Documentation Hub
 
-> Documentation as a product: clear, predictable, ITIL‑aligned — no more swamps of stale pages.
+Documentation as a product: transparent, ITIL-aligned, role-based accountability. No more "document swamps" of outdated pages!
 
 ![Accor DocOps hero](docs/media/hero.png)
 
-**Accor DocOps** is a documentation‑as‑code platform that puts everything in one place, sets common rules, and removes chaos across Confluence, SharePoint, and scattered wikis. Two languages (EN/FR), clear owners, scheduled reviews, and a lean CI/CD wheel that ships changes automatically — so knowledge stays fresh and trustworthy.
+## 🎯 Why This Matters
 
----
+- **One entry point**: Stop hunting across six different systems — everything is here in one place.
+- **ITIL-structured**: Incidents, problems, changes, CMDB, and service catalog — each section where it belongs.
+- **Clear accountability**: Every page has an owner and review date — you always know who's responsible.
+- **Automated delivery**: Changes go through CI/CD — updates hit the site without manual effort.
+- **Painless bilingual**: English and French stay synchronized; outdated translations are flagged automatically.
 
-## 🎯 Why this matters
-
-- **Single entry point.** No more hunting through seven different spaces — everything is here.
-- **ITIL logic.** Incidents, problems, changes, service catalog, CMDB — every section where it belongs.
-- **Ownership & cadence.** Each page has an owner and a review date — transparency over "nobody's".
-- **Automation.** Every change goes through CI/CD and lands on the site without manual heroics.
-- **Pain‑free bilingual.** EN/FR stay in sync; lagging translations are clearly flagged.
-
----
-
-## 🧭 Documentation structure
+## 🧩 Documentation Architecture
 
 ```
 Accor_DocOps/
 ├─ docs/
-│  ├─ en/                      # English
-│  │  ├─ itil/
-│  │  │  ├─ incident/          # Incident Management
-│  │  │  ├─ problem/           # Problem Management
-│  │  │  ├─ change/            # Change Enablement
-│  │  │  ├─ cmdb/              # Configuration Management
-│  │  │  └─ service-catalog/   # Service Catalog
-│  │  ├─ kb/                   # Knowledge base (how-to)
-│  │  ├─ ops/                  # Runbooks
-│  │  ├─ devops/               # Pipelines & practices
-│  │  ├─ governance/           # Policies, RACI, glossary
-│  │  └─ media/                # Images & assets
-│  ├─ fr/                      # French (mirror)
-│  └─ templates/               # Shared document templates
-├─ .github/workflows/docs.yml  # CI/CD for build & publish
-├─ mkdocs.yml                  # Site config
+│  ├─ en/                  # English documentation
+│  │  ├─ itil/             # ITIL processes
+│  │  ├─ kb/               # Knowledge base (how-to guides)
+│  │  ├─ ops/              # Operational runbooks
+│  │  ├─ devops/           # CI/CD practices
+│  │  ├─ governance/       # Policies, RACI, glossary
+│  │  └─ media/            # All images & assets
+│  ├─ fr/                  # French documentation (mirror)
+│  └─ templates/           # Shared templates
+├─ .github/workflows/docs.yml  # CI/CD automation
+├─ mkdocs.yml                  # Site configuration
 └─ requirements.txt            # Dependencies
 ```
 
-Why it's convenient:
-- **Feels like a metro map:** ITIL branches with smart cross‑links — hard to get lost.
-- **Templates & metadata:** consistent pages that are easy to search and maintain.
-- **Scales cleanly:** add sections/languages without rewriting the world.
+**What makes this work:**
 
----
+- **ITIL roadmap**: Navigate by process — impossible to get lost.
+- **Templated & tagged**: All pages follow the same structure; search and maintenance are effortless.
+- **Scales cleanly**: Add a language or new section — just a few minutes of setup.
 
-## ✨ Highlights
+## ✨ Key Features
 
-- **Single source of truth.** Git history, PR reviews, full transparency.
-- **Real bilingual.** One‑to‑one EN/FR structure with "stale translation" flags.
-- **ITIL‑friendly.** Process sections, artifacts, and a shared glossary — by the book.
-- **Built‑in responsibility.** Owner, status, next review date — right in front‑matter.
-- **CI/CD out of the box.** Markdown linter, link checker, PR preview, auto‑deploy.
-- **Ready to grow.** From RACI & policies to Jira/ServiceNow links when needed.
+- **Single source of truth**: Git history, PR reviews, transparent change log.
+- **Real bilingual support**: EN ↔ FR, translation status always visible.
+- **ITIL by the book**: Processes, artifacts, shared glossary — standards built in.
+- **Ownership & cadence**: Each document shows its owner, status, and next review date — accountability is visible.
+- **CI/CD included**: Markdown linting, link checking, PR previews, auto-deploy.
+- **Built to grow**: Add RACI, policies, Jira/ServiceNow integrations — everything supported.
 
-### Faceted navigation and freshness
-- **Facets:** Browse by Audience, Type, and Owner in the EN nav.
-- **Last Updated:** Facet pages show last modified dates from Git for each document.
-- **Stats on Home:** Total docs and lifecycle coverage auto-updated during CI.
+## 🧭 Faceted Navigation + Fresh Content
 
----
+- **Smart filtering**: Browse by Audience, Document Type, or Owner — find what you need instantly.
+- **Last updated**: Facet pages display when each document was last modified (pulled from Git).
+- **Live statistics**: Homepage shows document count and lifecycle coverage — auto-updated during CI/CD runs.
 
 ## 🌍 Localization (i18n)
 
-The project supports multiple languages via the `mkdocs-static-i18n` plugin.
+- **Two languages supported**: EN/FR (ready to add: DE, ES, RU, etc.).
+- **Folder-based structure**: Each locale gets its own folder: `docs/<locale>/`.
+- **Translation status**: Pages out of sync with English are marked `outdated` automatically.
+- **Shared assets**: All images live in `docs/media/` — no duplication.
+- **Built-in technology**: Uses `mkdocs-static-i18n` — add a new language in the config and you're done.
 
-- **Default language:** `en`
-- **Already available:** `en`, `fr`
-- **Ready to add:** new locales can be plugged in (e.g., `de`, `es`, `ru`)
+## 🚀 Quick Start
 
-Detailed how-to for vendors and translators: `docs/en/devops/localization.md` (site path: `/en/devops/localization/`).
+### Windows (Easiest Way)
 
-How to add a new locale (short version):
-1. Create `docs/<locale>/` (e.g., `docs/ru/`).
-2. Copy the needed pages from `docs/en/` and translate them.
-3. In each page’s front matter set: `locale: "<locale>"`; if not aligned with EN yet, set `outdated: true`.
-4. Images are shared across languages: keep them in `docs/media/` and use relative links like `../../../media/<image>.png` from nested sections.
-5. Update `mkdocs.yml`: add the new locale under `nav:` and include it in the language switcher `extra.alternate`.
-6. Build the site: `mkdocs build --clean` or preview locally with `mkdocs serve`.
-
-Technical notes:
-- `mkdocs-static-i18n` is added in `requirements.txt`.
-- `i18n` plugin is enabled in `mkdocs.yml` (folder-based structure) and the language switcher is configured.
-
-When a translation lags behind EN, mark the page `outdated: true` so readers see the status until it’s updated.
-
-> 📘 **All documentation and instructions are consolidated in [FAQ.md](FAQ.md)** — complete reference guide with setup, troubleshooting, and best practices.
-
-## 🚀 Quick start
-
-**Requirements:** Python 3.8+, Git
-
-### Windows (Easy way)
-
-Just double-click `dev.bat` or run it from terminal:
 ```cmd
 dev.bat
 ```
 
 That's it! The script will:
+
 - Create virtual environment (if needed)
 - Install dependencies
-- Start the development server
+- Start the dev server on http://127.0.0.1:8000
+
+### Any OS
+
+```bash
+git clone <repository-url>
+cd Accor_DocOps
+python -m venv .venv
+.venv\Scripts\activate    # Windows
+source .venv/bin/activate # macOS/Linux
+pip install -r requirements.txt
+mkdocs serve
+```
 
 Open http://127.0.0.1:8000 in your browser.
 
-### Manual setup (all platforms)
+### Content Quality Toolkit
 
-```bash
-# Clone
-git clone <repository-url>
-cd Accor_DocOps
+Run any of these commands to validate your documentation:
 
-# Virtual env
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
+- **Validate tags**: `python tools/validate_tags.py docs/en/...`
+- **Generate facets**: `python tools/generate_facets.py`
+- **Update statistics**: `python tools/generate_statistics.py`
+- **Health check**: `python tools/docs_health_check.py`
+- **Link validation**: `python tools/check_links.py`
+- **Find orphan media**: `python tools/check_media.py`
 
-# Install & run locally
-pip install -r requirements.txt
-mkdocs serve
-# Open http://127.0.0.1:8000
-```
+Setup pre-commit hooks (local validation before every commit):
 
-**Production build**
-```bash
-mkdocs build
-# Static site in the site/ folder
-```
-
-### Content quality toolkit
-- Tags validator: `python tools/validate_tags.py docs/en/...`
-- Facet generator: `python tools/generate_facets.py`
-- Stats generator: `python tools/generate_statistics.py`
-- Health check: `python tools/docs_health_check.py`
-- Internal link check: `python tools/check_links.py`
-- Orphan media check: `python tools/check_media.py`
-
-Pre-commit setup:
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
-Tagging rules (short):
-- Required namespaces per doc: `audience`, `doc-type`, `owner`, `lifecycle`, `sensitivity`; 1–3 `topic`
-- 3–10 tags total; kebab-case, english
-- Deprecated docs must include `deprecated_redirect` in front matter
+Now every commit runs checks automatically — catch errors before they hit the repo!
 
----
+## 🛠️ Document Templates
 
-## 🌍 Auto‑publish (GitHub Pages)
+Each template includes required metadata: author, owner, tags, version, and review dates.
 
-1) Push the repo to GitHub  
-2) Enable GitHub Actions  
-3) Pages → **Deploy from a branch** → `gh-pages`  
-4) Done: each push to `main` builds & deploys, PRs get a live preview.
+- **Architecture** — System diagrams, components, data flows
+- **How-to Guide** — Step-by-step instructions + troubleshooting section
+- **Incident Report** — ITIL post-mortem (RCA + corrective actions)
+- **Policy** — Policies & procedures with ownership and review cycles
+- **Runbook** — "What to do at 3 a.m. when things are on fire"
 
-The workflow runs:
-- ✅ Markdown lint & link check  
-- ✅ Site build  
-- ✅ Deploy to Pages + PR preview
+## 🖼️ Visual Examples
 
----
+ITIL Process Tiles:
 
-## 🛠️ Templates (in `templates/`)
+- — Incident Management
+- — Problem Management
+- — Change Enablement
 
-- **Architecture** — system diagram, components, data flows  
-- **How‑to Guide** — step‑by‑step + "Troubleshooting" section  
-- **Incident Report** — ITIL post‑mortem (RCA, corrective actions)  
-- **Policy** — policy/procedure with owner and dates  
-- **Runbook** — what to do at 3 a.m. when things are on fire
+*(All visual assets are stored in `docs/media/` — keeps everything organized.)*
 
-Each template includes author, owner, review dates, tags, and version fields.
+## 🤝 Contributing Guidelines
 
----
+- **All changes via pull/merge requests** — no direct pushes to main.
+- **Review process**: Quick turnaround for minor fixes; full review for new pages.
+- **Keep EN/FR synchronized** — update both versions and fill front-matter metadata.
+- **Asset management**: Store all images in `docs/media/` with descriptive names and alt text.
 
-## 🤝 Contribution rules (short)
+## 🌍 Auto-Publishing to GitHub Pages
 
-- All changes via pull/merge requests.  
-- Minor edits → quick review; new pages → full review.  
-- Keep EN/FR in sync and fill front‑matter (owner, next review date, status).  
-- Store images in `media/`, use clear names, include alt text.
+1) Push to GitHub  
+2) Enable GitHub Actions in repository settings  
+3) Pages → **Deploy from a branch** → choose `gh-pages`  
+4) Done! Every push to `main` automatically builds and deploys.
 
----
+**What happens in each CI/CD run:**
 
-## 🖼️ Screenshots
+- ✅ Markdown linting & validation
+- ✅ Internal link checking
+- ✅ Facet generation
+- ✅ Statistics update
+- ✅ Site build
+- ✅ Deploy to GitHub Pages
+- ✅ PR preview (optional)
 
-![Site cover](docs/media/cover.png)
+## ✅ Why This Works
 
-**ITIL tiles:**
-- ![Incident Management tile](docs/media/itil-incident.png)
-- ![Problem Management tile](docs/media/itil-problem.png)
-- ![Change Enablement tile](docs/media/itil-change.png)
+Accor DocOps is a mature documentation platform where content lives, updates predictably, and helps teams stay aligned.
 
-*(Keep all visual assets in `docs/media/` so they're always handy.)*
+You can see the thoughtfulness in the architecture:
 
----
+- **Roles & accountability** — every page has a clear owner
+- **Review cycles** — nothing gets stale
+- **Bilingual first** — EN/FR aren't an afterthought
+- **Automation** — CI/CD takes the pain out of publishing
 
-## ✅ Bottom line
+**Result?** Documentation that actually stays current and useful.
 
-This repo has a **solid, grown‑up structure** that saves time, tames search, and makes updates a natural part of team work. You can feel the thinking behind **roles, review cycles, and bilingual content**, while automation kills the busywork.
+## 📘 Full Documentation
 
----
+Everything else — see [FAQ.md](FAQ.md).
 
-## 📘 Documentation
+That's where you'll find:
 
-**For complete documentation, setup instructions, troubleshooting, and FAQs, see [FAQ.md](FAQ.md)** — all project documentation is consolidated in one place for easy reference.
+- Setup instructions
+- Tagging rules
+- Troubleshooting
+- Best practices
+- All other questions answered
+
+Ready to get started?
+
+Pick your platform above ⬆️ and follow the Quick Start steps. Questions? Check [FAQ.md](FAQ.md) or open an issue.
 
