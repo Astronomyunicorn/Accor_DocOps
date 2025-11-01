@@ -1,6 +1,6 @@
 site_name: Accor DocOps
 site_description: ITIL-aligned documentation hub
-site_url: https://example.github.io/accor-docops
+site_url: https://astronomyunicorn.github.io/Accor_DocOps
 theme:
   name: material
   logo: media/itil-catalog.png
@@ -87,7 +87,7 @@ nav:
 extra:
   social:
     - icon: material/book-open-page-variant
-      link: https://example.github.io/accor-docops
+      link: https://astronomyunicorn.github.io/Accor_DocOps
   consent:
     title: Cookies
     description: Internal demo site.
