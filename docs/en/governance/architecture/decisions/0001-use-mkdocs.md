@@ -26,6 +26,7 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Documentation was scattered across Confluence, SharePoint, and various wikis
 - No single source of truth
 - Difficult to maintain consistency
@@ -33,6 +34,7 @@ outdated: false
 - Hard to automate quality checks and deployment
 
 **Why this matters:**
+
 - Teams spent time searching for information
 - Outdated documentation caused confusion
 - No clear ownership model
@@ -43,6 +45,7 @@ outdated: false
 **Use MkDocs as the static site generator for Accor DocOps platform.**
 
 MkDocs will:
+
 - Generate static HTML from Markdown files
 - Provide built-in search functionality
 - Support plugins for extended functionality (i18n, tags, etc.)
@@ -52,27 +55,32 @@ MkDocs will:
 ## Alternatives Considered
 
 ### Alternative A: Keep Confluence/SharePoint
+
 - **Pros:** Team familiarity, existing content
 - **Cons:** Vendor lock-in, limited automation, no version control, poor search
 - **Why not chosen:** Doesn't solve the core problems of scattered docs and lack of automation
 
 ### Alternative B: Jekyll (GitHub Pages)
+
 - **Pros:** Native GitHub Pages support, large community
 - **Cons:** Ruby dependency, less intuitive for non-developers, plugin ecosystem less mature
 - **Why not chosen:** MkDocs is simpler and Python-based (better fit for team)
 
 ### Alternative C: Docusaurus
+
 - **Pros:** React-based, modern UI, built-in i18n
 - **Cons:** More complex setup, requires Node.js, overkill for our needs
 - **Why not chosen:** Too heavy for documentation-focused use case
 
 ### Alternative D: Hugo
+
 - **Pros:** Fast builds, single binary
 - **Cons:** Go templating less familiar, configuration more complex
 - **Why not chosen:** MkDocs has better Markdown-first approach
 
 ### Our Choice: MkDocs
 **Why we chose this:**
+
 - ✅ Python-based (team expertise)
 - ✅ Simple configuration (single YAML file)
 - ✅ Excellent Markdown support
@@ -103,7 +111,7 @@ MkDocs will:
 
 - **Configuration:** `mkdocs.yml` at project root
 - **Theme:** Material for MkDocs
-- **Plugins:** 
+- **Plugins:**
   - `mkdocs-static-i18n` (multilingual support)
   - `mkdocs-section-index` (better navigation)
   - `mkdocs-glightbox` (image galleries)

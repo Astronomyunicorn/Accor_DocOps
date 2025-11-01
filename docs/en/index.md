@@ -28,7 +28,10 @@ outdated: false
 
 ![Cover](../media/cover.png)
 
-### What you'll find
+## What you'll find
+
+### Contents
+
 - ITIL process guides
 - KB articles and runbooks
 - DevOps pipeline docs

@@ -20,6 +20,7 @@ outdated: false
 Enable additional locales (e.g., `de`, `es`, `ru`) and provide clear steps for external translation agencies.
 
 ## Structure
+
 - Root docs directory: `docs/`
 - Per-locale folders: `docs/en/`, `docs/fr/`, `docs/<new-locale>/`
 - Shared media: `docs/media/`
@@ -28,6 +29,7 @@ Images are shared across locales. Use relative paths from content files, e.g. fr
 
 ## How it works
 The site uses the `mkdocs-static-i18n` plugin:
+
 - Default language: `en`
 - Existing locales: `en`, `fr`
 - Placeholder entries prepared for `de`, `es`, `ru`
@@ -35,6 +37,7 @@ The site uses the `mkdocs-static-i18n` plugin:
 The language switcher is shown via the `alternate` config in `mkdocs.yml`.
 
 ## Adding a new locale (maintainers)
+
 1) Create the folder:
    - `docs/<locale>/` (e.g., `docs/de/`)
 2) Seed initial content:
@@ -47,12 +50,14 @@ The language switcher is shown via the `alternate` config in `mkdocs.yml`.
 4) Link paths:
    - Keep relative media paths pointing to `../../../media/...`
 5) Navigation:
-   - Add the new locale section under `nav:` in `mkdocs.yml` or use `nav_translations` (advanced). For now, mirror the EN nav for essential pages.
+   - Add the new locale section under `nav:` in `mkdocs.yml` or use `nav_translations` (advanced).
+     For now, mirror the EN nav for essential pages.
 6) Build locally:
    - `mkdocs serve` or `mkdocs build --clean`
 
 ## Handing off to translation agencies
 Provide the agency with:
+
 - The `docs/en/` subtree as source of truth
 - The target folder to translate, e.g., `docs/de/`
 - The style guides: `DOCUMENTATION_STYLE.md`, `STYLEGUIDE.md`
@@ -65,6 +70,7 @@ Provide the agency with:
   - Glossary/terminology constraints if any
 
 ## Reviewing translations
+
 1) Lint: run Vale/markdownlint if applicable
 2) Open the local preview and check layout, links, and images
 3) When EN changes, set translated pages to `outdated: true` until re-aligned
@@ -81,5 +87,4 @@ extra:
 ```
 
 Then rebuild the site.
-
 

@@ -54,6 +54,7 @@ graph TB
 ## Actors
 
 ### Developers
+
 - **Role:** Content creators and maintainers
 - **Needs:** Easy to write, preview changes locally, automated validation
 - **Interactions:**
@@ -62,6 +63,7 @@ graph TB
   - Receive feedback from CI/CD on PRs
 
 ### L1 Support
+
 - **Role:** First-line support operators
 - **Needs:** Quick access to runbooks, troubleshooting guides
 - **Interactions:**
@@ -70,6 +72,7 @@ graph TB
   - Access runbooks for incident response
 
 ### Managers
+
 - **Role:** Decision makers, policy reviewers
 - **Needs:** Overview of processes, policies, governance
 - **Interactions:**
@@ -78,6 +81,7 @@ graph TB
   - Monitor documentation health
 
 ### External Users (Optional)
+
 - **Role:** External stakeholders, vendors
 - **Needs:** Access to public documentation
 - **Interactions:**
@@ -87,12 +91,14 @@ graph TB
 ## System Boundaries
 
 **Accor DocOps** is:
+
 - ✅ Documentation repository (Markdown files)
 - ✅ Static site generator (MkDocs)
 - ✅ Search and navigation system
 - ✅ CI/CD pipeline for validation and deployment
 
 **Accor DocOps** is NOT:
+
 - ❌ Content management system (no web editing)
 - ❌ User authentication system (handled by GitHub)
 - ❌ Comment system (no user-generated content)
@@ -101,13 +107,15 @@ graph TB
 ## External Systems
 
 ### GitHub
+
 - **Purpose:** Version control and CI/CD
-- **Interaction:** 
+- **Interaction:**
   - Stores documentation source (Markdown)
   - Runs GitHub Actions workflows
   - Hosts repository
 
 ### GitHub Pages
+
 - **Purpose:** Static site hosting
 - **Interaction:**
   - Serves built HTML site

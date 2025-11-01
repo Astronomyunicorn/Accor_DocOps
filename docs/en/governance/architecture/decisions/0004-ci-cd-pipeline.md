@@ -26,6 +26,7 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Manual deployment is error-prone and time-consuming
 - Need automated quality checks (tag validation, link checking)
 - Want to prevent broken links and invalid content from reaching production
@@ -33,6 +34,7 @@ outdated: false
 - Want PR previews for documentation changes
 
 **Why this matters:**
+
 - Documentation quality depends on automated validation
 - Manual steps introduce human error
 - Fast feedback loop improves developer experience
@@ -43,6 +45,7 @@ outdated: false
 **Use GitHub Actions for all CI/CD workflows.**
 
 GitHub Actions will:
+
 - Validate tags on every PR
 - Check for broken links
 - Run health checks (front matter, structure)
@@ -54,27 +57,32 @@ GitHub Actions will:
 ## Alternatives Considered
 
 ### Alternative A: Jenkins
+
 - **Pros:** Mature, feature-rich, self-hosted
 - **Cons:** Requires infrastructure, complex setup, maintenance overhead
 - **Why not chosen:** Overkill for documentation, adds infrastructure burden
 
 ### Alternative B: GitLab CI
+
 - **Pros:** Integrated with GitLab, powerful YAML-based config
 - **Cons:** We use GitHub, not GitLab
 - **Why not chosen:** Wrong platform
 
 ### Alternative C: CircleCI / Travis CI
+
 - **Pros:** Good features, widely used
 - **Cons:** External service, costs, additional configuration
 - **Why not chosen:** GitHub Actions is free and integrated
 
 ### Alternative D: Manual Deployment
+
 - **Pros:** Simple, no setup needed
 - **Cons:** Error-prone, time-consuming, no validation, no previews
 - **Why not chosen:** Doesn't solve any problems
 
 ### Our Choice: GitHub Actions
 **Why we chose this:**
+
 - ✅ **Free** for public repos (and included in GitHub Enterprise)
 - ✅ **Integrated** — No external services needed
 - ✅ **Simple** — YAML-based workflow files in `.github/workflows/`
@@ -105,6 +113,7 @@ GitHub Actions will:
 ## Implementation Details
 
 **Workflow Steps:**
+
 1. Checkout code
 2. Set up Python environment
 3. Install dependencies (`requirements.txt`)
@@ -118,11 +127,13 @@ GitHub Actions will:
 8. Deploy to GitHub Pages (on merge to main)
 
 **PR Previews:**
+
 - Use GitHub Actions to deploy preview to temporary location
 - Comment on PR with preview link
 - Automatically cleaned up after PR closes
 
 **Workflow Files:**
+
 - `.github/workflows/docs.yml` — Main CI/CD workflow
 - Can add more workflows as needed (e.g., monthly health reports)
 

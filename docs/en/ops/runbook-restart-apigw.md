@@ -18,10 +18,12 @@ outdated: false
 ---
 
 ## Preconditions
+
 - Maintenance window approved (Change Enablement)
 - On-call L3 available
 
 ## Steps
+
 1. Drain traffic from instance A
 2. Restart service `apigw` (systemd)
 3. Health check `/healthz`
@@ -31,4 +33,5 @@ outdated: false
 Revert traffic to previous stable instances.
 
 ## Verification
+
 - 99th percentile latency < 250ms

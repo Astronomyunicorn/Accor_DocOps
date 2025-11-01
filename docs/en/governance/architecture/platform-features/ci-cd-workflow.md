@@ -30,6 +30,7 @@ Every change to documentation goes through an automated CI/CD pipeline that vali
 ### 1. Trigger
 
 **Events:**
+
 - Push to `main` branch → Full build and deploy
 - Pull Request → Validation and preview build
 - Manual trigger (GitHub Actions UI)
@@ -59,6 +60,7 @@ Every change to documentation goes through an automated CI/CD pipeline that vali
 ```
 
 Includes:
+
 - MkDocs and plugins
 - Validation tools dependencies
 
@@ -93,6 +95,7 @@ Generates additional content:
 Builds static site to `site/` directory.
 
 **Output:**
+
 - HTML pages
 - CSS/JavaScript assets
 - Search index
@@ -113,6 +116,7 @@ Builds static site to `site/` directory.
 ```
 
 **Process:**
+
 1. Pushes `site/` contents to `gh-pages` branch
 2. GitHub Pages automatically serves from `gh-pages`
 3. Site updates within 1-2 minutes
@@ -126,6 +130,7 @@ For Pull Requests:
 3. 📝 **Status reported** — Success/failure in PR comments
 
 **Benefits:**
+
 - Catch errors before merge
 - No broken content in production
 - Fast feedback loop
@@ -182,9 +187,11 @@ Workflow can be triggered manually:
 ## Secrets & Variables
 
 Currently used:
+
 - `GITHUB_TOKEN` — Auto-provided, no setup needed
 
 Future (if needed):
+
 - Custom domain certificate
 - External service API keys
 - Deployment credentials

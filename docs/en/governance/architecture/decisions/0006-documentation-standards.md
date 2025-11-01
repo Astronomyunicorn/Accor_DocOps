@@ -26,6 +26,7 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Documentation from different teams lacks consistency
 - Missing metadata (owner, review dates, tags)
 - Inconsistent structure makes navigation difficult
@@ -33,6 +34,7 @@ outdated: false
 - No clear templates for common document types
 
 **Why this matters:**
+
 - Inconsistent docs reduce trust and usability
 - Missing metadata prevents automation (tagging, search, ownership)
 - Review cycles are unclear without dates
@@ -43,6 +45,7 @@ outdated: false
 **Establish documentation standards with required front matter and templates.**
 
 Every document must have:
+
 - **Required front matter:**
   - `title` — Document title
   - `summary` — Brief description
@@ -64,27 +67,32 @@ Every document must have:
 ## Alternatives Considered
 
 ### Alternative A: No Standards (Free-form)
+
 - **Pros:** Maximum flexibility, no constraints
 - **Cons:** Inconsistent structure, missing metadata, hard to automate
 - **Why not chosen:** Doesn't solve consistency and automation problems
 
 ### Alternative B: Strict Schema (XML/JSON)
+
 - **Pros:** Validatable, structured
 - **Cons:** Too rigid, harder to write, not Markdown-friendly
 - **Why not chosen:** Overkill, reduces writer productivity
 
 ### Alternative C: Guidelines Only (No Templates)
+
 - **Pros:** Flexible, encourages creativity
 - **Cons:** Inconsistent application, hard to enforce
 - **Why not chosen:** Standards without templates are hard to follow
 
 ### Alternative D: Separate Metadata Files
+
 - **Pros:** Clean separation, validatable
 - **Cons:** Extra files to maintain, easy to get out of sync
 - **Why not chosen:** Front matter keeps metadata with content
 
 ### Our Choice: Front Matter + Templates
 **Why we chose this:**
+
 - ✅ **Consistent Structure** — Templates ensure uniformity
 - ✅ **Automation-Friendly** — Front matter enables automated checks
 - ✅ **Writer-Friendly** — Markdown is easy to write
@@ -114,6 +122,7 @@ Every document must have:
 ## Implementation Details
 
 **Front Matter Format:**
+
 ```yaml
 ---
 title: "Document Title"
@@ -135,6 +144,7 @@ outdated: false
 ```
 
 **Templates Location:** `templates/` directory
+
 - `architecture.md`
 - `how-to.md`
 - `incident-report.md`
@@ -142,11 +152,13 @@ outdated: false
 - `runbook.md`
 
 **Validation:**
+
 - Pre-commit hooks check for required fields
 - CI/CD validates front matter on every PR
 - Missing fields cause build warnings
 
 **Documentation:**
+
 - [DOCUMENTATION_STYLE.md](../../DOCUMENTATION_STYLE.md) — Style guide
 - [STYLEGUIDE.md](../../STYLEGUIDE.md) — Writing guidelines
 - [Taxonomy](../../taxonomy.md) — Tag definitions

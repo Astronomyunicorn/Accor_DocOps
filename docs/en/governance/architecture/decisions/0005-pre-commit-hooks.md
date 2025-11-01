@@ -26,6 +26,7 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Developers push invalid changes (broken tags, missing front matter)
 - CI/CD catches errors, but feedback is delayed (after push)
 - Wasted CI minutes on preventable errors
@@ -33,6 +34,7 @@ outdated: false
 - Need to catch errors locally before commit
 
 **Why this matters:**
+
 - Fast feedback improves developer experience
 - Reduces CI load and costs
 - Prevents broken content from being committed
@@ -43,6 +45,7 @@ outdated: false
 **Use pre-commit hooks to validate documentation locally before commit.**
 
 Pre-commit hooks will:
+
 - Validate tag format and allowlist
 - Check for required front matter fields
 - Validate Markdown syntax (optional)
@@ -52,27 +55,32 @@ Pre-commit hooks will:
 ## Alternatives Considered
 
 ### Alternative A: CI/CD Only (No Local Validation)
+
 - **Pros:** Simple, no local setup needed
 - **Cons:** Delayed feedback, wasted CI resources, developers learn slowly
 - **Why not chosen:** Too slow, doesn't solve developer experience issue
 
 ### Alternative B: Git Hooks (Manual Setup)
+
 - **Pros:** Native Git, no external dependencies
 - **Cons:** Manual setup per developer, harder to maintain, version control issues
 - **Why not chosen:** Hard to maintain, inconsistent across team
 
 ### Alternative C: IDE Plugins
+
 - **Pros:** Integrated with development environment
 - **Cons:** Different IDEs, not all developers use same IDE, harder to enforce
 - **Why not chosen:** Not universal, harder to enforce
 
 ### Alternative D: Pre-push Hooks Only
+
 - **Pros:** Catches issues before pushing
 - **Cons:** Still allows invalid commits, wastes time fixing after commit
 - **Why not chosen:** Too late in the workflow
 
 ### Our Choice: Pre-commit Framework
 **Why we chose this:**
+
 - ✅ **Fast Feedback** — Errors caught before commit
 - ✅ **Version Controlled** — Hook config in `.pre-commit-config.yaml`
 - ✅ **Easy Setup** — `pre-commit install` one command
@@ -106,23 +114,27 @@ Pre-commit hooks will:
 **Configuration:** `.pre-commit-config.yaml` in repository root
 
 **Hooks:**
+
 - `validate_tags.py` — Tag format and allowlist validation
 - `check_links.py` — Internal link validation (quick check)
 - Markdown formatter (optional) — Consistent formatting
 - Trailing whitespace — Code quality
 
 **Setup:**
+
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
 **Usage:**
+
 - Runs automatically on `git commit`
 - Can run manually: `pre-commit run --all-files`
 - Can skip if needed: `git commit --no-verify` (not recommended)
 
 **CI Integration:**
+
 - CI also runs same checks (pre-commit hooks can run in CI)
 - Ensures consistency even if developer bypasses hooks
 

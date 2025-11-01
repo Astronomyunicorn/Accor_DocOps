@@ -20,10 +20,12 @@ outdated: false
 Every page must list an **owner** and a **last_review** date.
 
 ## Review cadence
+
 - Critical: monthly
 - Standard: 6–12 months
 
 ## RACI Example
+
 | Activity | R | A | C | I |
 |---------|---|---|---|---|
 | Incident postmortem | Service Owner | Head of Operations | Security | Stakeholders |

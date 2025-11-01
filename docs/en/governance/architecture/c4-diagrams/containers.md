@@ -86,6 +86,7 @@ graph TB
 ## Containers
 
 ### 1. GitHub Repository
+
 - **Technology:** Git version control
 - **Purpose:** Stores documentation source code
 - **Contains:**
@@ -99,6 +100,7 @@ graph TB
   - Source of truth
 
 ### 2. GitHub Actions (CI/CD)
+
 - **Technology:** GitHub Actions YAML workflows
 - **Purpose:** Automated validation, building, and deployment
 - **Components:**
@@ -111,6 +113,7 @@ graph TB
   - PR previews
 
 ### 3. MkDocs Build Process
+
 - **Technology:** Python + MkDocs framework
 - **Purpose:** Generates static HTML from Markdown
 - **Core Components:**
@@ -128,6 +131,7 @@ graph TB
   - Static site generation
 
 ### 4. GitHub Pages (Static Site)
+
 - **Technology:** Static HTML/CSS/JavaScript
 - **Purpose:** Serves documentation to end users
 - **Components:**

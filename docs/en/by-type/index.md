@@ -26,4 +26,3 @@ Pick a document type to continue:
 - [Tutorials](tutorial.md)
 - [Policies](policy.md)
 
-

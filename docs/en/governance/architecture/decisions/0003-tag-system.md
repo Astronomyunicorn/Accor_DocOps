@@ -26,6 +26,7 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Documentation needs to be findable by multiple dimensions:
   - Who is it for? (audience)
   - What type is it? (document type)
@@ -38,6 +39,7 @@ outdated: false
 - Multiple teams will add tags, need consistency
 
 **Why this matters:**
+
 - Team members need to find relevant docs quickly
 - Navigation by facets (audience, type, owner) improves UX
 - Tag validation prevents "tag spam" and inconsistencies
@@ -48,6 +50,7 @@ outdated: false
 **Implement namespace-based tagging system with required and optional namespaces.**
 
 Each document must have tags in these namespaces:
+
 - `audience:` — Who reads this? (l1-support, developer, manager, etc.)
 - `doc-type:` — What format? (runbook, howto, reference, policy, etc.)
 - `owner:` — Who owns this? (platform, security, network, etc.)
@@ -56,33 +59,39 @@ Each document must have tags in these namespaces:
 - `sensitivity:` — Access level (public, internal, confidential, restricted)
 
 Optional namespaces:
+
 - `region:` — Geography (if relevant)
 - `incident-priority:` — For runbooks (p0, p1, p2)
 
 ## Alternatives Considered
 
 ### Alternative A: Flat Tags (No Namespaces)
+
 - **Pros:** Simple, flexible
 - **Cons:** Tag conflicts (e.g., "kubernetes" vs "kubernetes-cluster"), no validation, hard to query by dimension
 - **Why not chosen:** Doesn't scale, leads to tag chaos
 
 ### Alternative B: Hierarchical Categories (Folders Only)
+
 - **Pros:** Simple organization
 - **Cons:** Documents can only be in one category, no multi-dimensional search
 - **Why not chosen:** Too limiting, can't tag by multiple dimensions
 
 ### Alternative C: Metadata Fields (YAML Front Matter Only)
+
 - **Pros:** Structured, validated
 - **Cons:** Can't be used by MkDocs plugins for faceted search, less flexible
 - **Why not chosen:** Need tags for search/filter functionality
 
 ### Alternative D: RDF/OWL Ontology
+
 - **Pros:** Very powerful, semantic
 - **Cons:** Overkill, complex, steep learning curve
 - **Why not chosen:** Too complex for documentation tagging
 
 ### Our Choice: Namespace-based Tags
 **Why we chose this:**
+
 - ✅ **Multi-dimensional** — Documents can be tagged by multiple facets
 - ✅ **Validatable** — Namespaces prevent conflicts (e.g., `audience:developer` vs `topic:developer`)
 - ✅ **Plugin-friendly** — Works with `mkdocs-tags` plugin for faceted navigation
@@ -112,6 +121,7 @@ Optional namespaces:
 ## Implementation Details
 
 **Tag Format:**
+
 ```yaml
 tags:
   - audience:developer
@@ -124,6 +134,7 @@ tags:
 ```
 
 **Validation Rules:**
+
 - Required: `audience`, `doc-type`, `owner`, `topic` (1-3), `lifecycle`, `sensitivity`
 - Optional: `region`, `incident-priority`
 - Total: 3-10 tags per document
@@ -131,11 +142,13 @@ tags:
 - Allowlist: Valid values stored in `tools/tags-allowlist.json`
 
 **Tools:**
+
 - `tools/validate_tags.py` — Validates tags against allowlist
 - Pre-commit hooks — Run validation before commit
 - CI/CD — Validate all tags in PRs
 
 **Navigation:**
+
 - `mkdocs-tags` plugin creates facet pages:
   - `/by-audience/` — Filter by audience
   - `/by-type/` — Filter by document type

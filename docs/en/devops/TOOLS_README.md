@@ -5,10 +5,12 @@
 ## Установленные инструменты
 
 ### Форматтеры
+
 - **mdformat** - Форматирование Markdown файлов
 - **mdformat-gfm** - Поддержка GitHub Flavored Markdown
 
 ### Линтеры
+
 - **markdownlint-cli2** - Проверка стиля Markdown
 - **vale** - Проверка стиля и качества текста
 - **textstat** - Анализ читаемости текста
@@ -53,12 +55,14 @@ mkdocs build --strict
 ## Конфигурация
 
 ### markdownlint (.markdownlint.json)
+
 - Максимальная длина строки: 120 символов
 - Отступы: 2 пробела
 - Разрешены дублирующиеся заголовки
 - Отключены некоторые строгие правила
 
 ### Vale (.vale.ini)
+
 - Проверка пассивного залога
 - Проверка жаргона и клише
 - Проверка сложных предложений
@@ -80,18 +84,21 @@ pre-commit install
 ## Troubleshooting
 
 ### Ошибки установки
+
 ```bash
 # Переустановка зависимостей
 pip install -r requirements.txt --force-reinstall
 ```
 
 ### Проблемы с Vale
+
 ```bash
 # Скачивание стилей Vale
 vale sync
 ```
 
 ### Проблемы с markdownlint
+
 ```bash
 # Проверка конфигурации
 markdownlint-cli2 --config .markdownlint.json docs/

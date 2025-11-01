@@ -23,6 +23,7 @@ Welcome! This guide will help you understand the Accor DocOps platform and start
 ## What is Accor DocOps?
 
 Accor DocOps is a **documentation-as-code platform** that centralizes all IT documentation in one place:
+
 - 📚 ITIL process guides
 - 🔧 Runbooks and operational procedures
 - 📖 Knowledge base articles
@@ -30,6 +31,7 @@ Accor DocOps is a **documentation-as-code platform** that centralizes all IT doc
 - 🚀 DevOps pipeline documentation
 
 **Key features:**
+
 - Version controlled (Git)
 - Automated validation and deployment
 - Multi-language support (EN/FR)
@@ -39,11 +41,13 @@ Accor DocOps is a **documentation-as-code platform** that centralizes all IT doc
 ## Quick Navigation
 
 **New here?** Start with:
+
 1. [Local Setup](#local-setup) — Get the site running on your machine
 2. [Creating Your First Document](#creating-your-first-document) — Write your first page
 3. [Contribution Workflow](./contributing.md) — How to submit changes
 
 **Looking for specific information?**
+
 - [FAQ](./faq.md) — Common questions
 - [Architecture Overview](../governance/architecture/README.md) — How the platform works
 - [Tagging Guide](../governance/taxonomy.md) — How to tag documents
@@ -59,16 +63,18 @@ Accor DocOps is a **documentation-as-code platform** that centralizes all IT doc
 ### Windows (Easiest Way)
 
 Double-click `dev.bat` or run:
+
 ```cmd
 dev.bat
 ```
 
 The script automatically:
+
 - Creates virtual environment
 - Installs dependencies
 - Starts local server
 
-Open http://127.0.0.1:8000 in your browser.
+Open <http://127.0.0.1:8000> in your browser.
 
 ### Manual Setup (All Platforms)
 
@@ -98,6 +104,7 @@ mkdocs serve
 ### Production Build
 
 To build static site (for testing):
+
 ```bash
 mkdocs build
 # Output in site/ folder
@@ -108,6 +115,7 @@ mkdocs build
 ### Step 1: Choose a Template
 
 Templates are in `templates/` directory:
+
 - `how-to.md` — Step-by-step guides
 - `runbook.md` — Operational procedures
 - `policy.md` — Policies and procedures
@@ -145,11 +153,13 @@ outdated: false
 ```
 
 **Required fields:**
+
 - `title`, `summary`, `owner`, `tags`, `last_review`, `locale`, `service`, `version`
 
 ### Step 4: Write Content
 
 Use Markdown:
+
 ```markdown
 ## Introduction
 This is my guide.
@@ -170,6 +180,7 @@ mkdocs serve
 ### Step 6: Validate
 
 Before committing:
+
 ```bash
 # Validate tags
 python tools/validate_tags.py docs/en/kb/my-first-guide.md
@@ -218,6 +229,7 @@ docs/en/
 ### Tags Explained
 
 Tags use **namespace:value** format:
+
 - `audience:developer` — For developers
 - `doc-type:howto` — How-to guide
 - `owner:platform` — Owned by platform team
@@ -245,14 +257,17 @@ See [Contributing Guide](../onboarding/contributing.md) for details.
 
 1. Save image to `docs/media/`
 2. Reference in Markdown:
+
    ```markdown
    ![Description](../media/image.png)
    ```
+
 3. Use relative paths from document location
 
 ### Linking Between Documents
 
 Use relative paths:
+
 ```markdown
 See [another document](../ops/example.md)
 ```
@@ -260,6 +275,7 @@ See [another document](../ops/example.md)
 ### Tagging Documents
 
 Always include:
+
 - `audience:` — Who reads this?
 - `doc-type:` — What type?
 - `owner:` — Who owns?
@@ -272,15 +288,18 @@ See [Taxonomy](../governance/taxonomy.md) for allowed values.
 ## Tools and Scripts
 
 **Validation:**
+
 - `tools/validate_tags.py` — Check tags
 - `tools/check_links.py` — Check links
 - `tools/docs_health_check.py` — Front matter validation
 
 **Generation:**
+
 - `tools/generate_facets.py` — Generate facet pages
 - `tools/generate_statistics.py` — Generate statistics
 
 **Help:**
+
 ```bash
 python tools/validate_tags.py --help
 ```

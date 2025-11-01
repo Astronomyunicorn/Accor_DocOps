@@ -27,4 +27,3 @@ Choose your role to find relevant documentation:
 - [Developer](developer.md) — Software developers, architects
 - [Manager](manager.md) — Team leads, engineering managers
 
-

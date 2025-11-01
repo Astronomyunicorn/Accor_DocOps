@@ -21,10 +21,12 @@ outdated: false
 Purpose, scope, and roles of **Service Catalog Management**.
 
 ## Standard Operating Procedures
+
 - Link to runbooks in `/en/ops`
 - Link to policies in `/en/governance`
 
 ## KPIs
+
 - MTTR, time-to-restore, change success rate (as applicable)
 
 ![Icon](../../../media/itil-catalog.png)

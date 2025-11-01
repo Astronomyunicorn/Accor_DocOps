@@ -24,6 +24,7 @@ Automated quality assurance ensures documentation meets standards.
 ## Overview
 
 Quality checks run at two stages:
+
 1. **Pre-commit** (local) — Catch errors before commit
 2. **CI/CD** (server) — Final validation before merge
 
@@ -34,6 +35,7 @@ Quality checks run at two stages:
 **Script:** `tools/validate_tags.py`
 
 **Checks:**
+
 - ✅ Required namespaces present (`audience`, `doc-type`, `owner`, `topic`, `lifecycle`, `sensitivity`)
 - ✅ Tag format: `namespace:value` (kebab-case)
 - ✅ Values match allowlist (`tools/tags-allowlist.json`)
@@ -43,6 +45,7 @@ Quality checks run at two stages:
 **Failure:** PR blocked if invalid tags found
 
 **Example:**
+
 ```bash
 $ python tools/validate_tags.py docs/en/governance/
 ✅ All tags valid
@@ -53,6 +56,7 @@ $ python tools/validate_tags.py docs/en/governance/
 **Script:** `tools/check_links.py`
 
 **Checks:**
+
 - ✅ Internal links resolve to existing files
 - ✅ External links are accessible (HTTP status check)
 - ✅ No broken image references
@@ -61,6 +65,7 @@ $ python tools/validate_tags.py docs/en/governance/
 **Failure:** Warning in PR (non-blocking), can be merged with approval
 
 **Example:**
+
 ```bash
 $ python tools/check_links.py docs/en/
 ⚠️  Broken link: docs/en/example.md -> docs/en/missing.md
@@ -71,6 +76,7 @@ $ python tools/check_links.py docs/en/
 **Script:** `tools/docs_health_check.py`
 
 **Checks:**
+
 - ✅ Required fields present: `title`, `summary`, `owner`, `tags`, `last_review`, `locale`, `service`, `version`
 - ✅ `last_review` format: YYYY-MM-DD
 - ✅ `outdated` flag: boolean (true/false)
@@ -79,6 +85,7 @@ $ python tools/check_links.py docs/en/
 **Failure:** PR blocked if critical fields missing
 
 **Example:**
+
 ```yaml
 # ❌ Missing required field
 ---
@@ -105,6 +112,7 @@ outdated: false
 **Script:** `tools/check_media.py`
 
 **Checks:**
+
 - ✅ Referenced images exist in `docs/media/`
 - ✅ No orphaned images (images not referenced anywhere)
 - ✅ Image format: PNG, SVG, or JPG
@@ -112,6 +120,7 @@ outdated: false
 **Failure:** Warning in PR
 
 **Example:**
+
 ```bash
 $ python tools/check_media.py docs/en/
 ⚠️  Orphaned image: docs/media/unused.png
@@ -122,6 +131,7 @@ $ python tools/check_media.py docs/en/
 **Tool:** `mdformat` or `markdownlint`
 
 **Checks:**
+
 - ✅ Consistent formatting
 - ✅ No trailing whitespace
 - ✅ Proper heading hierarchy
@@ -132,22 +142,26 @@ $ python tools/check_media.py docs/en/
 ## Pre-commit Hooks
 
 **Setup:**
+
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
 **Runs:**
+
 - Automatically on `git commit`
 - Can skip: `git commit --no-verify` (not recommended)
 
 **Hooks:**
+
 1. Tag validation (quick check)
 2. Front matter check (quick check)
 3. Trailing whitespace removal
 4. Markdown formatting (optional)
 
 **Benefits:**
+
 - ✅ Fast feedback (errors before commit)
 - ✅ Reduces CI load
 - ✅ Teaches correct format
@@ -157,10 +171,12 @@ pre-commit install
 **Location:** `.github/workflows/docs.yml`
 
 **Runs:**
+
 - On every push to `main`
 - On every Pull Request
 
 **Checks:**
+
 1. Full tag validation (all files)
 2. Link checking (all internal/external links)
 3. Front matter validation (all files)
@@ -168,6 +184,7 @@ pre-commit install
 5. Build check (MkDocs builds successfully)
 
 **Output:**
+
 - ✅ Pass: Green checkmark in PR
 - ❌ Fail: Red X with error details
 
@@ -183,6 +200,7 @@ pre-commit install
 ### Metrics Dashboard (Future)
 
 Potential enhancements:
+
 - Documentation freshness (by `last_review` date)
 - Tag usage statistics
 - Link health over time
@@ -193,10 +211,12 @@ Potential enhancements:
 ### When to Bypass
 
 **Never bypass these:**
+
 - Tag validation (required for navigation)
 - Front matter validation (required for automation)
 
 **Can bypass with approval:**
+
 - External link failures (may be temporary)
 - Media warnings (if intentional)
 
@@ -210,6 +230,7 @@ Potential enhancements:
 ## Continuous Improvement
 
 **Monthly Review:**
+
 - Review validation failures
 - Update allowlists as needed
 - Enhance checks based on common errors

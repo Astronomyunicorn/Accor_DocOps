@@ -26,12 +26,14 @@ outdated: false
 ## Context
 
 **Problem:**
+
 - Need reliable, free hosting for documentation site
 - Must integrate with GitHub repository workflow
 - Requires automatic deployment from CI/CD
 - Should support custom domains (if needed in future)
 
 **Why this matters:**
+
 - Documentation needs to be publicly accessible (or within org)
 - Manual deployment is error-prone and time-consuming
 - Cost is a factor (no budget for dedicated hosting)
@@ -42,6 +44,7 @@ outdated: false
 **Use GitHub Pages for hosting the static documentation site.**
 
 GitHub Pages will:
+
 - Host the built static site from MkDocs
 - Deploy automatically via GitHub Actions
 - Provide HTTPS by default
@@ -51,27 +54,32 @@ GitHub Pages will:
 ## Alternatives Considered
 
 ### Alternative A: Self-Hosted Web Server
+
 - **Pros:** Full control, custom configuration
 - **Cons:** Requires infrastructure, maintenance overhead, costs, SSL management
 - **Why not chosen:** Too much overhead for documentation site
 
 ### Alternative B: AWS S3 + CloudFront
+
 - **Pros:** Scalable, CDN benefits, enterprise-grade
 - **Cons:** Setup complexity, costs (even if low), need to manage AWS resources
 - **Why not chosen:** Overkill for internal documentation, adds complexity
 
 ### Alternative C: Netlify / Vercel
+
 - **Pros:** Excellent DX, automatic deployments, free tier
 - **Cons:** External dependency, potential vendor lock-in, may hit free tier limits
 - **Why not chosen:** GitHub Pages integrates better with our workflow
 
 ### Alternative D: GitLab Pages
+
 - **Pros:** Similar to GitHub Pages, integrated
 - **Cons:** We use GitHub, not GitLab
 - **Why not chosen:** Not applicable (wrong platform)
 
 ### Our Choice: GitHub Pages
 **Why we chose this:**
+
 - ✅ **Zero cost** for organization repositories
 - ✅ **Native integration** with GitHub Actions
 - ✅ **Automatic HTTPS** — no certificate management
@@ -102,16 +110,19 @@ GitHub Pages will:
 ## Implementation Details
 
 **Deployment Strategy:**
+
 - Use GitHub Actions to build MkDocs site
 - Deploy built `site/` folder to `gh-pages` branch
 - GitHub Pages serves from `gh-pages` branch automatically
 
 **Configuration:**
+
 - Repository Settings → Pages → Source: `gh-pages` branch
 - Custom domain: Can be configured if needed
 - HTTPS: Enabled by default
 
 **Workflow:**
+
 1. Developer pushes to `main` branch
 2. GitHub Actions builds site
 3. GitHub Actions pushes to `gh-pages` branch

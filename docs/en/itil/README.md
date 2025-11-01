@@ -24,9 +24,11 @@ How the ITIL framework is integrated into the Accor DocOps documentation platfor
 
 ## Overview
 
-**Accor DocOps** is built around **ITIL-aligned structure** that organizes documentation by ITIL processes. This ensures that IT operations documentation follows industry best practices and is easy to find for different roles.
+**Accor DocOps** is built around **ITIL-aligned structure** that organizes documentation by ITIL processes.
+This ensures that IT operations documentation follows industry best practices and is easy to find for different roles.
 
-> **ITIL (Information Technology Infrastructure Library)** is a framework of best practices for delivering IT services. Accor DocOps organizes documentation following ITIL 4 practices.
+> **ITIL (Information Technology Infrastructure Library)** is a framework of best practices for delivering IT services.
+Accor DocOps organizes documentation following ITIL 4 practices.
 
 ## ITIL Processes in Accor DocOps
 
@@ -74,6 +76,7 @@ ITIL processes reference operational documentation:
 Documentation flows follow ITIL workflows:
 
 **Incident Flow:**
+
 1. **Incident detected** → Check `/itil/incident/` for process
 2. **Use runbook** → Follow procedure from `/ops/`
 3. **Escalate if needed** → Reference `/itil/problem/` for problem management
@@ -81,6 +84,7 @@ Documentation flows follow ITIL workflows:
 5. **Create change if needed** → Reference `/itil/change/` for change process
 
 **Problem Flow:**
+
 1. **Problem identified** → Check `/itil/problem/` for process
 2. **Root cause analysis** → Use troubleshooting guides from `/kb/`
 3. **Create change** → Follow `/itil/change/` process
@@ -115,12 +119,14 @@ Templates support ITIL processes:
 **Purpose:** Restore normal service operation as quickly as possible
 
 **Key Documentation:**
+
 - Incident management process overview
 - Links to operational runbooks (`/ops/`)
 - Escalation procedures
 - Links to problem management for recurring issues
 
 **When to Use:**
+
 - Service is down or degraded
 - Need to restore service quickly
 - During incident response
@@ -132,12 +138,14 @@ Templates support ITIL processes:
 **Purpose:** Identify root causes and prevent recurrence
 
 **Key Documentation:**
+
 - Problem management process
 - Links to troubleshooting guides (`/kb/`)
 - Root cause analysis procedures
 - Links to change enablement for fixes
 
 **When to Use:**
+
 - Recurring incidents
 - Need to find root cause
 - Prevent future issues
@@ -149,12 +157,14 @@ Templates support ITIL processes:
 **Purpose:** Manage changes safely and minimize risk
 
 **Key Documentation:**
+
 - Change management process
 - Links to deployment guides (`/devops/`)
 - Change approval workflows
 - Rollback procedures
 
 **When to Use:**
+
 - Planning a change
 - Need change approval
 - Deploying new features or fixes
@@ -166,12 +176,14 @@ Templates support ITIL processes:
 **Purpose:** Track IT assets and their relationships
 
 **Key Documentation:**
+
 - CMDB structure and process
 - Configuration item (CI) definitions
 - Relationship mapping
 - Update procedures
 
 **When to Use:**
+
 - Documenting infrastructure
 - Tracking service dependencies
 - Managing configuration items
@@ -183,12 +195,14 @@ Templates support ITIL processes:
 **Purpose:** Define and manage service offerings
 
 **Key Documentation:**
+
 - Service catalog structure
 - Service definitions
 - Service level agreements (SLAs)
 - Service relationships
 
 **When to Use:**
+
 - Defining new services
 - Updating service definitions
 - Managing service portfolio
@@ -235,6 +249,7 @@ Knowledge base supports ITIL processes:
 ### By Tags
 
 Search/filter by ITIL tags:
+
 - `topic:itil-incident`
 - `topic:itil-problem`
 - `topic:itil-change`
@@ -259,6 +274,7 @@ Search/filter by ITIL tags:
 ### Step 2: Tag Correctly
 
 Always include ITIL topic tag:
+
 ```yaml
 tags:
   - topic:itil-incident    # For incident-related docs
@@ -269,6 +285,7 @@ tags:
 ### Step 3: Cross-Reference
 
 Link between ITIL processes and related documentation:
+
 ```markdown
 See [Related Runbook](../../ops/runbook-example.md)
 See [Change Process](../change/index.md)

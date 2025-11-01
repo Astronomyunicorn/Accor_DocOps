@@ -25,7 +25,9 @@ Common questions about Accor DocOps platform.
 
 ### What is Accor DocOps?
 
-Accor DocOps is a **documentation-as-code platform** that centralizes IT documentation. It replaces scattered Confluence pages, SharePoint sites, and wikis with a single, version-controlled, searchable documentation hub.
+Accor DocOps is a **documentation-as-code platform** that centralizes IT documentation.
+It replaces scattered Confluence pages, SharePoint sites, and wikis with a single, version-controlled,
+searchable documentation hub.
 
 ### Why do we need this?
 
@@ -49,6 +51,7 @@ Accor DocOps is a **documentation-as-code platform** that centralizes IT documen
 See [Getting Started](../onboarding/index.md#local-setup).
 
 Quick version:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -74,6 +77,7 @@ See [Getting Started](../onboarding/index.md#creating-your-first-document).
 ### How do I tag documents?
 
 Use **namespace:value** format:
+
 ```yaml
 tags:
   - audience:developer
@@ -104,6 +108,7 @@ See [CI/CD Workflow](../governance/architecture/platform-features/ci-cd-workflow
 ### Can I edit documents in the browser?
 
 No. Accor DocOps uses **documentation-as-code**:
+
 - Edit Markdown files locally
 - Commit to Git
 - Changes deploy via CI/CD
@@ -126,6 +131,7 @@ This ensures version control and quality checks.
 ### What are facet pages?
 
 Auto-generated pages that filter documents by tags:
+
 - `/by-audience/` — Filter by role (developer, manager, etc.)
 - `/by-type/` — Filter by document type (runbook, howto, etc.)
 - `/by-owner/` — Filter by owning team
@@ -146,6 +152,7 @@ See [Localization](../devops/localization.md).
 ### Why did my PR fail validation?
 
 Common reasons:
+
 - **Missing front matter** — Required fields not present
 - **Invalid tags** — Tags don't match allowlist or format
 - **Broken links** — Links point to non-existent files
@@ -169,6 +176,7 @@ python tools/docs_health_check.py docs/en/your-file.md
 ### What is the tag allowlist?
 
 Valid tag values are defined in `tools/tags-allowlist.json`. To add new values:
+
 1. Update allowlist file
 2. Justify in PR description
 3. Get approval
@@ -178,18 +186,21 @@ Valid tag values are defined in `tools/tags-allowlist.json`. To add new values:
 ### Site doesn't build locally
 
 **Check:**
+
 - Python version (3.8+)
 - Virtual environment activated
 - Dependencies installed (`pip install -r requirements.txt`)
 - Front matter valid (YAML syntax)
 
 **Common errors:**
+
 - `ModuleNotFoundError` → Install dependencies
 - YAML syntax error → Check front matter formatting
 
 ### Images not showing
 
 **Check:**
+
 - Image in `docs/media/`
 - Correct relative path (e.g., `../media/image.png` from `kb/`)
 - Image format (PNG, SVG, JPG)
@@ -197,6 +208,7 @@ Valid tag values are defined in `tools/tags-allowlist.json`. To add new values:
 ### Links broken
 
 **Check:**
+
 - File exists at target path
 - Correct relative path
 - File extension included (`.md`)
@@ -204,6 +216,7 @@ Valid tag values are defined in `tools/tags-allowlist.json`. To add new values:
 ### Pre-commit hooks failing
 
 **Options:**
+
 1. Fix the issue (recommended)
 2. Skip with `git commit --no-verify` (not recommended)
 
@@ -216,6 +229,7 @@ CI will still validate, but local validation is faster.
 See [ADR-001: Use MkDocs](../governance/architecture/decisions/0001-use-mkdocs.md).
 
 **Key reasons:**
+
 - Python-based (team expertise)
 - Simple configuration
 - Excellent Markdown support
@@ -226,6 +240,7 @@ See [ADR-001: Use MkDocs](../governance/architecture/decisions/0001-use-mkdocs.m
 See [ADR-002: Deploy to GitHub Pages](../governance/architecture/decisions/0002-github-pages.md).
 
 **Key reasons:**
+
 - Free for organization repos
 - Integrated with GitHub
 - Automatic HTTPS
@@ -236,6 +251,7 @@ See [ADR-002: Deploy to GitHub Pages](../governance/architecture/decisions/0002-
 See [ADR-003: Namespace-based Tagging](../governance/architecture/decisions/0003-tag-system.md).
 
 **Key points:**
+
 - Namespace prevents conflicts
 - Multi-dimensional classification
 - Enables faceted navigation

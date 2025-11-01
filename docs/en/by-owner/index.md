@@ -26,4 +26,3 @@ Select a team:
 - [Applications](apps.md)
 - [Service Desk](service-desk.md)
 
-

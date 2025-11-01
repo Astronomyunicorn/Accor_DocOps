@@ -17,4 +17,5 @@ outdated: false
 ---
 
 ## Featured
+
 - [[How‑to] Reset VPN on macOS](how-to-reset-vpn.md)

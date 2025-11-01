@@ -24,6 +24,7 @@ How to install and configure Vale for documentation style checking.
 ## What is Vale?
 
 **Vale** is a syntax-aware linter for prose that helps maintain consistency and quality in documentation. It checks for:
+
 - Writing style issues
 - Grammar problems
 - Word usage
@@ -35,6 +36,7 @@ How to install and configure Vale for documentation style checking.
 ### Windows
 
 **Option 1: Download Binary**
+
 1. Go to [Vale Releases](https://github.com/errata-ai/vale/releases)
 2. Download `vale_X.X.X_Windows_x64.zip`
 3. Extract to a folder (e.g., `C:\Program Files\Vale\`)
@@ -44,11 +46,13 @@ How to install and configure Vale for documentation style checking.
    - Add Vale folder path
 
 **Option 2: Chocolatey (if installed)**
+
 ```cmd
 choco install vale
 ```
 
 **Option 3: Scoop (if installed)**
+
 ```cmd
 scoop install vale
 ```
@@ -104,6 +108,7 @@ If `vale sync` doesn't work, install styles manually:
 
 1. Create `.vale/styles` directory
 2. Clone style repositories:
+
    ```bash
    cd .vale\styles
    
@@ -131,6 +136,7 @@ Vale.Repetition = YES
 ```
 
 Then create minimal structure:
+
 ```bash
 mkdir .vale\styles
 # Vale core styles are built-in, no download needed
@@ -156,6 +162,7 @@ pre-commit run vale --all-files
 ### Error: "StylesPath not found"
 
 **Solution:** Create the directory:
+
 ```bash
 mkdir .vale\styles
 ```
@@ -163,6 +170,7 @@ mkdir .vale\styles
 ### Error: "Style 'Microsoft' not found"
 
 **Solution:** Install the style:
+
 ```bash
 vale sync
 # Or manually: git clone https://github.com/errata-ai/Microsoft.git .vale/styles/Microsoft
@@ -170,9 +178,11 @@ vale sync
 
 ### Vale not found in PATH
 
-**Solution:** 
+**Solution:**
+
 1. Verify installation: `vale --version`
 2. If not found, add Vale to PATH or use full path:
+
    ```bash
    "C:\Program Files\Vale\vale.exe" docs/
    ```
@@ -211,6 +221,7 @@ If you don't want to use Vale, you can:
 For a quick start, use Vale core only (no external styles):
 
 1. **Update `.vale.ini`:**
+
    ```ini
    StylesPath = .vale/styles
    MinAlertLevel = suggestion
@@ -223,11 +234,13 @@ For a quick start, use Vale core only (no external styles):
    ```
 
 2. **Create directory:**
+
    ```bash
    mkdir .vale\styles
    ```
 
 3. **Test:**
+
    ```bash
    vale docs/en/index.md
    ```

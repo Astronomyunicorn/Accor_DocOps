@@ -28,12 +28,14 @@ How users find documentation quickly using search and faceted navigation.
 Accor DocOps includes **client-side full-text search** powered by Lunr.js.
 
 **Features:**
+
 - ✅ Instant search results (no server round-trip)
 - ✅ Searches title, content, and tags
 - ✅ Highlights matching terms
 - ✅ Supports multiple languages (per locale)
 
 **How it works:**
+
 1. During build, MkDocs generates search index (`search/search_index.json`)
 2. Index is included in static site
 3. Browser loads index and performs search client-side
@@ -88,6 +90,7 @@ Facet pages are automatically generated during build by `mkdocs-tags` plugin:
 ### Breadcrumbs
 
 Material theme provides breadcrumb navigation showing current location:
+
 ```
 Home > Governance > Architecture > Decisions > ADR-001
 ```
@@ -130,6 +133,7 @@ Home > Governance > Architecture > Decisions > ADR-001
 ## Future Enhancements
 
 Potential improvements:
+
 - Server-side search (Algolia, Elasticsearch) for larger sites
 - Advanced filtering (combine multiple facets)
 - Search analytics

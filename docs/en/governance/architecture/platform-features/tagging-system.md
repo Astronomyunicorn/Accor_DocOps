@@ -23,7 +23,8 @@ How documents are organized and filtered using namespace-based tags.
 
 ## Overview
 
-Accor DocOps uses a **namespace-based tagging system** to classify documents across multiple dimensions. This enables faceted navigation and powerful filtering.
+Accor DocOps uses a **namespace-based tagging system** to classify documents across multiple dimensions.
+This enables faceted navigation and powerful filtering.
 
 ## Tag Structure
 
@@ -83,6 +84,7 @@ Tags are validated in two places:
 2. **CI/CD** — Automated validation on every PR
 
 Validation checks:
+
 - ✅ Format: `namespace:value` (kebab-case)
 - ✅ Required namespaces present
 - ✅ Values match allowlist (`tools/tags-allowlist.json`)

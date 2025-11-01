@@ -23,11 +23,13 @@ How to contribute changes to the documentation platform.
 ## Branching Strategy
 
 **Use feature branches:**
+
 ```bash
 git checkout -b docs/feature/<topic>
 ```
 
 **Examples:**
+
 - `docs/feature/api-gateway-runbook`
 - `docs/feature/kubernetes-howto`
 - `docs/feature/governance-update`
@@ -36,7 +38,8 @@ git checkout -b docs/feature/<topic>
 
 Before submitting a Pull Request, ensure:
 
-- [ ] **Front matter present** — All required fields (`title`, `summary`, `owner`, `tags`, `last_review`, `locale`, `service`, `version`)
+- [ ] **Front matter present** — All required fields (`title`, `summary`, `owner`, `tags`,
+  `last_review`, `locale`, `service`, `version`)
 - [ ] **Links are valid** — No broken internal or external links
 - [ ] **Template used** — Used appropriate template from `/templates` if applicable
 - [ ] **Images stored correctly** — Images in `docs/media/` (PNG/SVG) and properly referenced
@@ -60,11 +63,13 @@ python tools/docs_health_check.py docs/en/your-file.md
 ## Commit Message Format
 
 **Good:**
+
 ```
 docs: Add API Gateway restart runbook
 ```
 
 **Better:**
+
 ```
 docs: Add API Gateway restart runbook
 
@@ -101,11 +106,13 @@ PR is ready to merge when:
 ## Review Process
 
 **Who reviews?**
+
 - Subject Matter Expert (SME) for content
 - DocOps team for structure/format
 - At least 1 approval required
 
 **Review focuses on:**
+
 - Content accuracy
 - Tag correctness
 - Link validity
