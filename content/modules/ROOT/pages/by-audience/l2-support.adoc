@@ -1,0 +1,6 @@
+== Documentation for L2 Support
+
+=== All Documents
+
+* link:../itil/problem/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l2-support`, `doc-type:reference`

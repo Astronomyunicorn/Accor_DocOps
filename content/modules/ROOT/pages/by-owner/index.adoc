@@ -1,0 +1,9 @@
+== Documentation by Owner
+
+Select a team:
+
+* link:platform.md[Platform]
+* link:security.md[Security]
+* link:infra.md[Infra]
+* link:apps.md[Applications]
+* link:service-desk.md[Service Desk]

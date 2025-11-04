@@ -1,0 +1,12 @@
+== Documentation for Service Desk
+
+=== All Documents
+
+* link:../itil/incident/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../itil/problem/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l2-support`, `doc-type:reference`
+* link:../kb/how-to-reset-vpn.md[How To Reset Vpn] — Updated: 2025-10-28
+++|++ `audience:l1-support`, `doc-type:howto`
+* link:../kb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`

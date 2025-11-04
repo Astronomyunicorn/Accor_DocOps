@@ -1,0 +1,6 @@
+== Documentation for Howto
+
+=== All Documents
+
+* link:../kb/how-to-reset-vpn.md[How To Reset Vpn] — Updated: 2025-10-28
+++|++ `audience:l1-support`, `doc-type:howto`

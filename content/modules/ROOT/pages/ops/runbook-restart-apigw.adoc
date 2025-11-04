@@ -1,0 +1,20 @@
+=== Preconditions
+
+* Maintenance window approved (Change Enablement)
+* On-call L3 available
+
+=== Steps
+
+[arabic]
+. Drain traffic from instance A
+. Restart service `apigw` (systemd)
+. Health check `/healthz`
+. Repeat for instance B
+
+=== Rollback
+
+Revert traffic to previous stable instances.
+
+=== Verification
+
+* 99th percentile latency ++<++ 250ms

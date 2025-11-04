@@ -1,0 +1,3 @@
+=== Featured
+
+* link:how-to-reset-vpn.md[++[++How‑to++]++ Reset VPN on macOS]

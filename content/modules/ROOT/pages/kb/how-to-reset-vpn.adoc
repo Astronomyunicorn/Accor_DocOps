@@ -1,0 +1,14 @@
+=== Purpose
+
+Restore VPN connection for remote users.
+
+=== Steps
+
+[arabic]
+. Open *Keychain Access* → remove saved VPN certificates (if corrupted).
+. Delete `/Library/Preferences/com.vpn.client.plist`.
+. Reboot and re-import the profile from *Service Catalog*.
+
+=== Validation
+
+* VPN connects within 10 seconds; no auth loops.

@@ -1,0 +1,9 @@
+== Documentation by Type
+
+Pick a document type to continue:
+
+* link:runbook.md[Runbooks]
+* link:howto.md[How-to Guides]
+* link:reference.md[Reference]
+* link:tutorial.md[Tutorials]
+* link:policy.md[Policies]

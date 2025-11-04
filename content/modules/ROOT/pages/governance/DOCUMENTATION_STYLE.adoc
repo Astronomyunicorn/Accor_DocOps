@@ -1,0 +1,89 @@
+== Accor DocOps - Documentation Style Guide
+
+=== Markdown Formatting Rules
+
+==== General Rules
+
+* Use line length of 120 characters maximum
+* Use 2 spaces for indentation
+* End files with a single newline
+* No trailing whitespace
+
+==== Headers
+
+* Use ATX style headers (# ## ###)
+* No duplicate headers
+* First line should be a top-level header
+* Use sentence case for headers
+
+==== Lists
+
+* Use ordered lists for procedures
+* Use unordered lists for features/items
+* Indent nested lists with 2 spaces
+* Leave blank lines around lists
+
+==== Links and Images
+
+* Use descriptive link text
+* Place images in `docs/media/` directory
+* Use relative paths: `../../../media/image.png`
+* Include alt text for images
+
+==== Code Blocks
+
+* Use language tags for syntax highlighting
+* Indent code blocks with 4 spaces or use fenced blocks
+* Include comments explaining complex code
+
+==== Tables
+
+* Use pipe separators
+* Align columns when possible
+* Include headers for all tables
+
+=== Content Guidelines
+
+==== Language
+
+* Use active voice
+* Avoid passive voice
+* Write in present tense
+* Use simple, clear sentences
+
+==== Terminology
+
+* Use consistent terminology
+* Define acronyms on first use
+* Use ITIL standard terms
+* Avoid jargon and clichés
+
+==== Structure
+
+* Start with overview/objective
+* Use logical flow of information
+* Include examples where helpful
+* End with next steps or references
+
+=== ITIL-Specific Rules
+
+==== Process Documentation
+
+* Include purpose, scope, and roles
+* Define inputs and outputs
+* List key activities
+* Include KPIs and metrics
+
+==== Runbooks
+
+* Use step-by-step procedures
+* Include prerequisites
+* Add troubleshooting sections
+* Include rollback procedures
+
+==== Policies
+
+* Use formal language
+* Include compliance requirements
+* Define responsibilities
+* Include review cycles

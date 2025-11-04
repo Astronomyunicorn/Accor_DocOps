@@ -1,0 +1,26 @@
+== Documentation for Reference
+
+=== All Documents
+
+* link:../devops/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:developer`, `doc-type:reference`
+* link:../governance/taxonomy.md[Taxonomy] — Updated: 2025-10-30 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/change/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/cmdb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/incident/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../itil/problem/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l2-support`, `doc-type:reference`
+* link:../itil/service-catalog/index.md[Index] — Updated: 2025-10-28
+++|++ `audience:manager`, `doc-type:reference`
+* link:../kb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../ops/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../tags.md[Tags] — Updated: 2025-10-30 ++|++ `audience:manager`,
+`doc-type:reference`

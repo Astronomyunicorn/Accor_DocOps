@@ -1,0 +1,24 @@
+=== Ownership
+
+Every page must list an *owner* and a *last++_++review* date.
+
+=== Review cadence
+
+* Critical: monthly
+* Standard: 6–12 months
+
+=== RACI Example
+
+[width="99%",cols="44%,14%,14%,14%,14%",options="header",]
+|===
+|Activity |R |A |C |I
+|Incident postmortem |Service Owner |Head of Operations |Security
+|Stakeholders
+|===
+
+=== Related Documentation
+
+* link:taxonomy.md[Taxonomy] — Content tagging rules
+* link:architecture/README.md[Architecture Documentation] — Platform
+architecture and decisions
+* link:../onboarding/index.md[Onboarding] — Getting started guide

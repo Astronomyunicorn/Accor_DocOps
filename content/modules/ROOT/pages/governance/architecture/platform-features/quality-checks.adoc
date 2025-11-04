@@ -1,0 +1,240 @@
+== Quality Checks
+
+Automated quality assurance ensures documentation meets standards.
+
+=== Overview
+
+Quality checks run at two stages:
+
+[arabic]
+. *Pre-commit* (local) — Catch errors before commit
+. *CI/CD* (server) — Final validation before merge
+
+=== Check Types
+
+==== 1. Tag Validation
+
+*Script:* `tools/validate++_++tags.py`
+
+*Checks:*
+
+* ✅ Required namespaces present (`audience`, `doc-type`, `owner`,
+`topic`, `lifecycle`, `sensitivity`)
+* ✅ Tag format: `namespace:value` (kebab-case)
+* ✅ Values match allowlist (`tools/tags-allowlist.json`)
+* ✅ Tag count: 3-10 tags per document
+* ✅ No duplicate tags
+
+*Failure:* PR blocked if invalid tags found
+
+*Example:*
+
+[source,bash]
+----
+$ python tools/validate_tags.py docs/en/governance/
+✅ All tags valid
+----
+
+==== 2. Link Checking
+
+*Script:* `tools/check++_++links.py`
+
+*Checks:*
+
+* ✅ Internal links resolve to existing files
+* ✅ External links are accessible (HTTP status check)
+* ✅ No broken image references
+* ✅ No orphaned files (files not linked from anywhere)
+
+*Failure:* Warning in PR (non-blocking), can be merged with approval
+
+*Example:*
+
+[source,bash]
+----
+$ python tools/check_links.py docs/en/
+⚠️  Broken link: docs/en/example.md -> docs/en/missing.md
+----
+
+==== 3. Front Matter Validation
+
+*Script:* `tools/docs++_++health++_++check.py`
+
+*Checks:*
+
+* ✅ Required fields present: `title`, `summary`, `owner`, `tags`,
+`last++_++review`, `locale`, `service`, `version`
+* ✅ `last++_++review` format: YYYY-MM-DD
+* ✅ `outdated` flag: boolean (true/false)
+* ✅ `locale` matches file location (e.g., `locale: en` for `docs/en/`)
+
+*Failure:* PR blocked if critical fields missing
+
+*Example:*
+
+[source,yaml]
+----
+# ❌ Missing required field
+---
+title: "Example"
+# Missing: summary, owner, tags, etc.
+---
+
+# ✅ Valid front matter
+---
+title: "Example"
+summary: "Brief description"
+owner: "Platform"
+tags: [...]
+last_review: "2025-01-15"
+locale: "en"
+service: "docops"
+version: "v1.0"
+outdated: false
+---
+----
+
+==== 4. Media Validation
+
+*Script:* `tools/check++_++media.py`
+
+*Checks:*
+
+* ✅ Referenced images exist in `docs/media/`
+* ✅ No orphaned images (images not referenced anywhere)
+* ✅ Image format: PNG, SVG, or JPG
+
+*Failure:* Warning in PR
+
+*Example:*
+
+[source,bash]
+----
+$ python tools/check_media.py docs/en/
+⚠️  Orphaned image: docs/media/unused.png
+----
+
+==== 5. Markdown Linting (Optional)
+
+*Tool:* `mdformat` or `markdownlint`
+
+*Checks:*
+
+* ✅ Consistent formatting
+* ✅ No trailing whitespace
+* ✅ Proper heading hierarchy
+* ✅ Code block formatting
+
+*Status:* Optional, can be enabled in pre-commit
+
+=== Pre-commit Hooks
+
+*Setup:*
+
+[source,bash]
+----
+pip install pre-commit
+pre-commit install
+----
+
+*Runs:*
+
+* Automatically on `git commit`
+* Can skip: `git commit --no-verify` (not recommended)
+
+*Hooks:*
+
+[arabic]
+. Tag validation (quick check)
+. Front matter check (quick check)
+. Trailing whitespace removal
+. Markdown formatting (optional)
+
+*Benefits:*
+
+* ✅ Fast feedback (errors before commit)
+* ✅ Reduces CI load
+* ✅ Teaches correct format
+
+=== CI/CD Validation
+
+*Location:* `.github/workflows/docs.yml`
+
+*Runs:*
+
+* On every push to `main`
+* On every Pull Request
+
+*Checks:*
+
+[arabic]
+. Full tag validation (all files)
+. Link checking (all internal/external links)
+. Front matter validation (all files)
+. Media validation (all images)
+. Build check (MkDocs builds successfully)
+
+*Output:*
+
+* ✅ Pass: Green checkmark in PR
+* ❌ Fail: Red X with error details
+
+=== Quality Metrics
+
+==== Coverage
+
+* *Tag validation:* 100% of documents
+* *Link checking:* 100% of links
+* *Front matter:* 100% of documents
+* *Media:* All referenced images
+
+==== Metrics Dashboard (Future)
+
+Potential enhancements:
+
+* Documentation freshness (by `last++_++review` date)
+* Tag usage statistics
+* Link health over time
+* Build success rate
+
+=== Bypassing Checks
+
+==== When to Bypass
+
+*Never bypass these:*
+
+* Tag validation (required for navigation)
+* Front matter validation (required for automation)
+
+*Can bypass with approval:*
+
+* External link failures (may be temporary)
+* Media warnings (if intentional)
+
+==== How to Bypass
+
+[arabic]
+. Fix the issue (preferred)
+. Document reason in PR description
+. Get explicit approval from reviewer
+. Merge with understanding that issue will be tracked
+
+=== Continuous Improvement
+
+*Monthly Review:*
+
+* Review validation failures
+* Update allowlists as needed
+* Enhance checks based on common errors
+* Document patterns and solutions
+
+=== Related Documentation
+
+* link:../decisions/0005-pre-commit-hooks.md[ADR-005: Pre-commit Hooks]
+* link:../decisions/0006-documentation-standards.md[ADR-006:
+Documentation Standards]
+* link:../../../devops/TOOLS_README.md[Tools README]
+
+'''''
+
+*Last Updated:* 2025-01-15

@@ -1,0 +1,10 @@
+== Documentation by Audience
+
+Choose your role to find relevant documentation:
+
+* link:l1-support.md[L1 Support] — First-line support, NOC operators
+* link:l2-support.md[L2 Support] — Second-line support
+* link:l1-support.md[L1 Support] — First-line support, NOC operators
+* link:l2-support.md[L2 Support] — Second-line support
+* link:developer.md[Developer] — Software developers, architects
+* link:manager.md[Manager] — Team leads, engineering managers

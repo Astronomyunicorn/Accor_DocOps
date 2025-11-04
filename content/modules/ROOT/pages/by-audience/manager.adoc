@@ -1,0 +1,18 @@
+== Documentation for Manager
+
+=== All Documents
+
+* link:../governance/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:policy`
+* link:../governance/taxonomy.md[Taxonomy] — Updated: 2025-10-30 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/change/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/cmdb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`
+* link:../itil/service-catalog/index.md[Index] — Updated: 2025-10-28
+++|++ `audience:manager`, `doc-type:reference`
+* link:../tags.md[Tags] — Updated: 2025-10-30 ++|++ `audience:manager`,
+`doc-type:reference`

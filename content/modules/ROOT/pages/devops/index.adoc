@@ -1,0 +1,2 @@
+* Blue/Green deployment strategy
+* CI pipelines overview

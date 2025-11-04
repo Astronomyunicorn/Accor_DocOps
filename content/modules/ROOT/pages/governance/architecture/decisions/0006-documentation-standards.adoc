@@ -1,0 +1,166 @@
+== ADR-006: Documentation Standards and Templates
+
+=== Status
+
+✅ *Accepted* (Date: 2025-01-15)
+
+=== Context
+
+*Problem:*
+
+* Documentation from different teams lacks consistency
+* Missing metadata (owner, review dates, tags)
+* Inconsistent structure makes navigation difficult
+* Hard to find documents due to missing front matter
+* No clear templates for common document types
+
+*Why this matters:*
+
+* Inconsistent docs reduce trust and usability
+* Missing metadata prevents automation (tagging, search, ownership)
+* Review cycles are unclear without dates
+* New contributors don’t know where to start
+
+=== Decision
+
+*Establish documentation standards with required front matter and
+templates.*
+
+Every document must have:
+
+* *Required front matter:*
+** `title` — Document title
+** `summary` — Brief description
+** `owner` — Responsible team/person
+** `tags` — Namespace-based tags (see ADR-003)
+** `last++_++review` — Last review date (YYYY-MM-DD)
+** `locale` — Language code (en, fr, etc.)
+** `service` — Service/system name
+** `version` — Document version
+** `outdated` — Boolean flag if translation is stale
+* *Templates provided for:*
+** Architecture documents
+** How-to guides
+** Incident reports
+** Policies
+** Runbooks
+
+=== Alternatives Considered
+
+==== Alternative A: No Standards (Free-form)
+
+* *Pros:* Maximum flexibility, no constraints
+* *Cons:* Inconsistent structure, missing metadata, hard to automate
+* *Why not chosen:* Doesn’t solve consistency and automation problems
+
+==== Alternative B: Strict Schema (XML/JSON)
+
+* *Pros:* Validatable, structured
+* *Cons:* Too rigid, harder to write, not Markdown-friendly
+* *Why not chosen:* Overkill, reduces writer productivity
+
+==== Alternative C: Guidelines Only (No Templates)
+
+* *Pros:* Flexible, encourages creativity
+* *Cons:* Inconsistent application, hard to enforce
+* *Why not chosen:* Standards without templates are hard to follow
+
+==== Alternative D: Separate Metadata Files
+
+* *Pros:* Clean separation, validatable
+* *Cons:* Extra files to maintain, easy to get out of sync
+* *Why not chosen:* Front matter keeps metadata with content
+
+==== Our Choice: Front Matter {plus} Templates
+
+*Why we chose this:*
+
+* ✅ *Consistent Structure* — Templates ensure uniformity
+* ✅ *Automation-Friendly* — Front matter enables automated checks
+* ✅ *Writer-Friendly* — Markdown is easy to write
+* ✅ *Validation* — Can validate front matter automatically
+* ✅ *Searchable* — Metadata enables faceted search
+
+=== Consequences
+
+==== Positive ✅
+
+[arabic]
+. *Consistency* — All documents follow same structure
+. *Automation* — Front matter enables automated checks and features
+. *Ownership* — Clear ownership model
+. *Review Cycles* — Review dates visible and trackable
+. *Templates* — New contributors know where to start
+. *Validation* — Can validate front matter in CI/CD
+
+==== Negative ❌
+
+[arabic]
+. *Boilerplate* — Every document needs front matter
+* *Mitigation:* Templates reduce copy-paste, can use snippets
+. *Learning Curve* — Team needs to learn front matter format
+* *Mitigation:* Clear documentation, templates, validation errors
+. *Maintenance* — Need to keep templates updated
+* *Mitigation:* Templates are version controlled, easy to update
+
+=== Implementation Details
+
+*Front Matter Format:*
+
+[source,yaml]
+----
+---
+title: "Document Title"
+summary: "Brief description"
+owner: "Team/Person"
+tags:
+  - audience:developer
+  - doc-type:reference
+  - owner:platform
+  - topic:example
+  - lifecycle:approved
+  - sensitivity:internal
+last_review: "2025-01-15"
+locale: "en"
+service: "docops"
+version: "v1.0"
+outdated: false
+---
+----
+
+*Templates Location:* `templates/` directory
+
+* `architecture.md`
+* `how-to.md`
+* `incident-report.md`
+* `policy.md`
+* `runbook.md`
+
+*Validation:*
+
+* Pre-commit hooks check for required fields
+* CI/CD validates front matter on every PR
+* Missing fields cause build warnings
+
+*Documentation:*
+
+* link:../../DOCUMENTATION_STYLE.md[DOCUMENTATION++_++STYLE.md] — Style
+guide
+* link:../../STYLEGUIDE.md[STYLEGUIDE.md] — Writing guidelines
+* link:../../taxonomy.md[Taxonomy] — Tag definitions
+
+=== Related Decisions
+
+* link:./0003-tag-system.md[ADR-003: Namespace-based Tagging]
+* link:./0005-pre-commit-hooks.md[ADR-005: Pre-commit Hooks]
+
+=== References
+
+* link:../../../templates/[Templates Directory] (see repository root)
+* link:../../DOCUMENTATION_STYLE.md[Documentation Style Guide]
+
+'''''
+
+*Date:* 2025-01-15 +
+*Author:* DocOps Team +
+*Approved By:* Platform Lead

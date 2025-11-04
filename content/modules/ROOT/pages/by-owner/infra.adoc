@@ -1,0 +1,6 @@
+== Documentation for Infra
+
+=== All Documents
+
+* link:../itil/cmdb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:reference`

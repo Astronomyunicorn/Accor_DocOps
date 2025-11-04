@@ -1,0 +1,8 @@
+== Documentation for Developer
+
+=== All Documents
+
+* link:../devops/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:developer`, `doc-type:reference`
+* link:../devops/localization.md[Localization] — Updated: 2025-10-30
+++|++ `audience:developer`, `doc-type:tutorial`

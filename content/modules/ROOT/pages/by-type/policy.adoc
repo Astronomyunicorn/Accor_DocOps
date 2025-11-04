@@ -1,0 +1,6 @@
+== Documentation for Policy
+
+=== All Documents
+
+* link:../governance/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:manager`, `doc-type:policy`

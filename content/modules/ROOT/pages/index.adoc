@@ -1,28 +1,18 @@
-= Accor DocOps
+== Documentation Hub
 
-Welcome to Accor Documentation Hub.
+____
+This is a demo home page. Use the left navigation to explore ITIL areas,
+KB, runbooks and governance.
+____
 
-Documentation as a product: transparent, ITIL-aligned, role-based accountability.
+.Cover
+image::../media/cover.png[Cover]
 
-== Key Features
+=== What you’ll find
 
-* One entry point for all documentation
+==== Contents
 
-* ITIL-structured processes
-
-* Clear ownership and review cycles
-
-* Automated delivery via CI/CD
-
-* Bilingual support (EN/FR)
-
-== Quick Links
-
-* xref:getting-started.adoc[Getting Started]
-
-* xref:architecture:index.adoc[Architecture]
-
-* xref:itil:index.adoc[ITIL Processes]
-
-* xref:knowledge-base:index.adoc[Knowledge Base]
-
+* ITIL process guides
+* KB articles and runbooks
+* DevOps pipeline docs
+* Governance, policies, and RACI

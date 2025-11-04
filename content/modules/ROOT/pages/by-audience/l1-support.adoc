@@ -1,0 +1,14 @@
+== Documentation for L1 Support
+
+=== All Documents
+
+* link:../itil/incident/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../kb/how-to-reset-vpn.md[How To Reset Vpn] — Updated: 2025-10-28
+++|++ `audience:l1-support`, `doc-type:howto`
+* link:../kb/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../ops/index.md[Index] — Updated: 2025-10-28 ++|++
+`audience:l1-support`, `doc-type:reference`
+* link:../ops/runbook-restart-apigw.md[Runbook Restart Apigw] — Updated:
+2025-10-28 ++|++ `audience:l1-support`, `doc-type:runbook`

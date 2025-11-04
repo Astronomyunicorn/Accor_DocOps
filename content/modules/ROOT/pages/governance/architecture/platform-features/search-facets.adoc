@@ -1,0 +1,140 @@
+== Search & Facets
+
+How users find documentation quickly using search and faceted
+navigation.
+
+=== Search Functionality
+
+==== Full-Text Search
+
+Accor DocOps includes *client-side full-text search* powered by Lunr.js.
+
+*Features:*
+
+* ✅ Instant search results (no server round-trip)
+* ✅ Searches title, content, and tags
+* ✅ Highlights matching terms
+* ✅ Supports multiple languages (per locale)
+
+*How it works:*
+
+[arabic]
+. During build, MkDocs generates search index
+(`search/search++_++index.json`)
+. Index is included in static site
+. Browser loads index and performs search client-side
+
+==== Search Usage
+
+* *Keyboard shortcut:* `Ctrl{plus}K` (or `Cmd{plus}K` on Mac)
+* *Search box:* Top navigation bar
+* *Results:* Instant filtering as you type
+
+=== Faceted Navigation
+
+Faceted navigation allows users to browse documents by predefined
+dimensions.
+
+==== Available Facets
+
+[arabic]
+. *By Audience* (`/by-audience/`)
+* Filter by role: Developer, L1 Support, Manager, etc.
+* Example: `/by-audience/developer/` shows all developer-focused docs
+. *By Type* (`/by-type/`)
+* Filter by document format: Runbook, How-to, Reference, Policy
+* Example: `/by-type/runbook/` shows all operational runbooks
+. *By Owner* (`/by-owner/`)
+* Filter by owning team: Platform, Security, Network, etc.
+* Example: `/by-owner/platform/` shows all platform team docs
+
+==== Facet Generation
+
+Facet pages are automatically generated during build by `mkdocs-tags`
+plugin:
+
+[arabic]
+. Plugin scans all documents for tags
+. Groups documents by namespace (`audience`, `doc-type`, `owner`)
+. Generates index pages for each facet value
+. Includes last-updated dates from Git
+
+*Generation script:* `tools/generate++_++facets.py` (optional
+enhancement)
+
+=== Navigation Structure
+
+==== Main Navigation
+
+* Home
+* Tags (all tags index)
+* Browse by Audience
+* Browse by Type
+* Browse by Owner
+* ITIL sections
+* KB, Ops, DevOps, Governance
+
+==== Breadcrumbs
+
+Material theme provides breadcrumb navigation showing current location:
+
+....
+Home > Governance > Architecture > Decisions > ADR-001
+....
+
+=== Finding Documentation
+
+==== Scenario 1: "`I need a runbook for API Gateway`"
+
+[arabic]
+. Navigate to *Ops (Runbooks)* in main nav
+. Or browse *By Type → Runbook*
+. Search for "`api gateway`"
+. Filter by `topic:api-gateway` if available
+
+==== Scenario 2: "`What documentation exists for developers?`"
+
+[arabic]
+. Browse *By Audience → Developer*
+. See all developer-focused documentation
+. Filter further by type or topic
+
+==== Scenario 3: "`I need security policies`"
+
+[arabic]
+. Browse *By Type → Policy*
+. Filter by `owner:security` (if facet page exists)
+. Or search for "`security policy`"
+
+=== Performance
+
+* *Search index size:* Typically 100-500 KB (depends on content)
+* *Load time:* ++<++ 1 second (index loaded on page load)
+* *Search speed:* Instant (client-side, no network delay)
+* *Facet generation:* Fast (generated at build time, not runtime)
+
+=== Limitations
+
+[arabic]
+. *Client-side only* — Search index must be loaded in browser
+. *No fuzzy matching* — Exact word matching (Lunr.js limitations)
+. *No stemming* — "`run`" and "`running`" are different terms
+. *Static generation* — Facets generated at build time, not dynamic
+
+=== Future Enhancements
+
+Potential improvements:
+
+* Server-side search (Algolia, Elasticsearch) for larger sites
+* Advanced filtering (combine multiple facets)
+* Search analytics
+* Popular searches / suggestions
+
+=== Related Documentation
+
+* link:./tagging-system.md[Tagging System]
+* link:../decisions/0003-tag-system.md[ADR-003: Namespace-based Tagging]
+
+'''''
+
+*Last Updated:* 2025-01-15
