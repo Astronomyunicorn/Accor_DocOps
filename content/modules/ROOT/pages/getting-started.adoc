@@ -1,0 +1,16 @@
+= Getting Started
+
+Welcome! This guide will help you get up and running.
+
+== First Steps
+
+. Read the xref:index.adoc[Home Page]
+
+. Explore xref:itil:index.adoc[ITIL Processes]
+
+. Check xref:knowledge-base:index.adoc[Knowledge Base]
+
+== Need Help?
+
+Contact the documentation team for more information.
+

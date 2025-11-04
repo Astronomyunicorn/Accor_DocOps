@@ -1,0 +1,28 @@
+= Accor DocOps
+
+Welcome to Accor Documentation Hub.
+
+Documentation as a product: transparent, ITIL-aligned, role-based accountability.
+
+== Key Features
+
+* One entry point for all documentation
+
+* ITIL-structured processes
+
+* Clear ownership and review cycles
+
+* Automated delivery via CI/CD
+
+* Bilingual support (EN/FR)
+
+== Quick Links
+
+* xref:getting-started.adoc[Getting Started]
+
+* xref:architecture:index.adoc[Architecture]
+
+* xref:itil:index.adoc[ITIL Processes]
+
+* xref:knowledge-base:index.adoc[Knowledge Base]
+

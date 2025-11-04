@@ -1,0 +1,11 @@
+= Architecture
+
+System architecture overview.
+
+== Sections
+
+* Arc42
+
+* C4 Diagrams
+
+* ADR

@@ -1,0 +1,20 @@
+* xref:index.adoc[Home]
+
+* xref:getting-started.adoc[Getting Started]
+
+* Architecture
+
+** xref:architecture:index.adoc[Overview]
+
+* ITIL Processes
+
+** xref:itil:index.adoc[Overview]
+
+* xref:knowledge-base:index.adoc[Knowledge Base]
+
+* xref:operations:index.adoc[Operations]
+
+* xref:devops:index.adoc[DevOps]
+
+* xref:governance:index.adoc[Governance]
+

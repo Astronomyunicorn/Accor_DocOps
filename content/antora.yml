@@ -1,0 +1,22 @@
+name: accor-docs
+
+title: Accor Documentation
+
+version: '1.0'
+
+nav:
+
+  - modules/ROOT/nav.adoc
+
+  - modules/architecture/nav.adoc
+
+  - modules/itil/nav.adoc
+
+  - modules/knowledge-base/nav.adoc
+
+  - modules/operations/nav.adoc
+
+  - modules/devops/nav.adoc
+
+  - modules/governance/nav.adoc
+

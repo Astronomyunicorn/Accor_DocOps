@@ -1,0 +1,3 @@
+= Knowledge Base
+
+How-to guides and FAQs.

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/architecture/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/devops/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/getting-started.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/governance/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/itil/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/knowledge-base/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+<url>
+<loc>http://localhost:8080/accor-docs/1.0/operations/index.html</loc>
+<lastmod>2025-11-04T06:24:48.704Z</lastmod>
+</url>
+</urlset>

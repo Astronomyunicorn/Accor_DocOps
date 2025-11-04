@@ -1,0 +1,15 @@
+{
+  "name": "accor-docops",
+  "version": "1.0.0",
+  "description": "Accor Documentation Operations",
+  "private": true,
+  "scripts": {
+    "build": "antora --fetch antora-playbook-local.yml",
+    "preview": "antora --fetch antora-playbook-local.yml && npx http-server public -p 8080"
+  },
+  "devDependencies": {
+    "@antora/cli": "^3.1",
+    "@antora/site-generator": "^3.1"
+  }
+}
+
